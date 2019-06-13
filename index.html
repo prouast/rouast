@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- standard meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="Philipp Rouast">
+  <!-- site properties -->
+  <title>Philipp Rouast</title>
+  <style type="text/css">
+    .ui.inverted.segment {
+      padding: 7em 0em;
+    }
+    .segment {
+      margin: 7em 0em;
+    }
+    .ui.footer.segment {
+      margin: 5em 0em 0em;
+      padding: 7em 0em;
+    }
+    .ui.white.link {
+      color: #ffffff;
+    }
+  </style>
+  <!-- inject:css -->
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <!-- endinject -->
+</head>
+<body>
+  <!-- Fixed menu -->
+  <div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="#top" class="item">
+        <i class="home icon"></i>
+      </a>
+      <a href="#projects" class="item">Projects</a>
+      <a href="#publications" class="item">Publications</a>
+      <a href="#timeline" class="item">Timeline</a>
+    </div>
+  </div>
+  <!-- Intro -->
+  <div class="ui inverted vertical center aligned segment">
+    <div class="ui text container">
+      <center><img class="ui small circular image" src="/images/prouast.png"></center>
+      <h1 class="ui inverted header">
+        Philipp Rouast
+      </h1>
+      <a class="ui white link" href="mailto:philipp@rouast.com?Subject=Oh%20hi%20philipp">
+        <i class="envelope icon"></i>
+        Email
+      </a>
+      <h3>I am a PhD candidate at the University of Newcastle, Australia. My research focuses on human-centered applications of deep learning and computer vision.</h3>
+    </div>
+  </div>
+  <!-- Projects -->
+  <div id="projects" class="segment">
+    <div class="ui center aligned text container">
+      <h2 class="ui header">Projects</h2>
+      <h5 class="ui horizontal divider header">
+        <i class="wrench icon"></i>
+        Some projects I've worked on.
+      </h5>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui text container">
+      <div class="ui two stackable cards">
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/intake_detection.png">
+          </div>
+          <div class="content">
+            <a class="header">Intake gesture detection</a>
+            <div class="meta">
+              <span class="date">2018 - 2019</span>
+            </div>
+            <div class="meta">
+              <span class="date">Python</span>
+              <span class="date">TensorFlow</span>
+            </div>
+            <div class="description">
+              Automatic detection of individual intake gestures based on 360-degree video and deep learning.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://github.com/prouast/deep-intake-detection">
+              <button class="ui button">
+                <i class="github icon"></i>
+                GitHub
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/rppg.png">
+          </div>
+          <div class="content">
+            <a class="header">rPPG</a>
+            <div class="meta">
+              <span class="date">2015 - 2016</span>
+            </div>
+            <div class="meta">
+              <span class="date">C++</span>
+              <span class="date">Java</span>
+              <span class="date">OpenCV</span>
+            </div>
+            <div class="description">
+              Heart rate measurement based on face video, implemented for desktop and mobile.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://github.com/prouast/heartbeat">
+              <button class="ui button">
+                <i class="github icon"></i>
+                GitHub
+              </button>
+            </a>
+            <a href="https://www.youtube.com/watch?v=D_KYv7pXAvQ">
+              <button class="ui youtube button">
+                <i class="youtube icon"></i>
+                YouTube
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/equirectangular-remap.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Equirectangular remap</a>
+            <div class="meta">
+              <span class="date">2017</span>
+            </div>
+            <div class="meta">
+              <span class="date">C</span>
+              <span class="date">ffmpeg</span>
+            </div>
+            <div class="description">
+              Generate maps for conversions from spherical to equirectangular in ffmpeg.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://github.com/prouast/equirectangular-remap">
+              <button class="ui button">
+                <i class="github icon"></i>
+                GitHub
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/cryptocurrency-analysis.png">
+          </div>
+          <div class="content">
+            <a class="header">Cryptocurrency analysis</a>
+            <div class="meta">
+              <span class="date">2017</span>
+            </div>
+            <div class="meta">
+              <span class="date">R</span>
+            </div>
+            <div class="description">
+              Analysis and visualisation of the cryptocurrency market.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://github.com/prouast/cryptocurrency-analysis">
+              <button class="ui button">
+                <i class="github icon"></i>
+                GitHub
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Publications -->
+  <div id="publications" class="segment">
+    <div class="ui center aligned text container">
+      <h2 class="ui header">Publications</h2>
+      <h5 class="ui horizontal divider header">
+        <i class="pencil alternate icon"></i>
+        Current and forthcoming publications.
+      </h5>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui text container">
+      <div class="ui items">
+        <div class="item">
+          <div class="image">
+            <img src="/images/intake_detection_1.gif">
+            <img src="/images/intake_detection_2.gif">
+            <img src="/images/intake_detection_3.gif">
+            <img src="/images/intake_detection_4.gif">
+          </div>
+          <div class="content">
+            <a class="header">Learning Deep Representations for Video-based Intake Gesture Detection</a>
+            <div class="athors">
+              <span><u>Philipp V. Rouast</u>, Marc T. P. Adam</span>
+            </div>
+            <div class="meta">
+              <span>IEEE Journal of Biomedical and Health Informatics</span>
+            </div>
+            <div class="description">
+              <p>
+                Automatic detection of individual intake gestures during eating occasions has the potential to improve food intake monitoring and support dietary recommendations. Existing studies typically make use of on-body solutions such as inertial and audio sensors, while video is used as ground truth. Intake gesture detection directly based on video has rarely been attempted. Here we show that novel deep learning architectures can successfully be applied to video-based detection of intake gestures. For this purpose, we use labeled video data of eating occasions based on 360-degree video. We select state-of-the-art approaches from video action recognition and apply them to the problem of intake gesture detection, achieving an F1 score of 0.858 for the best model. The results show that appearance features contribute more than motion features, and that temporal context in form of multiple video frames is useful as model input.
+              </p>
+            </div>
+            <div class="extra">
+              <span class="links"><a>arXiv</a></span>
+              <span class="links"><a>Google Scholar</a></span>
+              <span class="links"><a>IEEE Xplore</a></span>
+              <span class="links"><a>ResearchGate</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="/images/affect_recognition.png">
+          </div>
+          <div class="content">
+            <a class="header">Deep Learning for Human Affect Recognition: Insights and New Developments</a>
+            <div class="authors">
+              <span><u>Philipp V. Rouast</u>, Marc T. P. Adam, Raymond Chiong</span>
+            </div>
+            <div class="meta">
+              <span>IEEE Transactions on Affective Computing</span>
+            </div>
+            <div class="description">
+              <p>
+                Automatic human affect recognition is a key step towards more natural human-computer interaction. Recent trends include recognition in the wild using a fusion of audiovisual and physiological sensors, a challenging setting for conventional machine learning algorithms. Since 2010, novel deep learning algorithms have been applied increasingly in this field. In this paper, we review the literature on human affect recognition between 2010 and 2017, with a special focus on approaches using deep neural networks. By classifying a total of 950 studies according to their usage of shallow or deep architectures, we are able to show a trend towards deep learning. Reviewing a subset of 233 studies that employ deep neural networks, we comprehensively quantify their applications in this field. We find that deep learning is used for learning of (i) spatial feature representations, (ii) temporal feature representations, and (iii) joint feature representations for multimodal sensor data. Exemplary state-of-the-art architectures illustrate the recent progress. Our findings show the role deep architectures will play in human affect recognition, and can serve as a reference point for researchers working on related applications.
+              </p>
+            </div>
+            <div class="extra">
+              <span class="links"><a href="https://arxiv.org/abs/1901.02884">arXiv</a></span>
+              <span class="links"><a href="https://scholar.google.com.au/scholar?cluster=17643367748425293417">Google Scholar</a></span>
+              <span class="links"><a href="https://ieeexplore.ieee.org/abstract/document/8598999/">IEEE Xplore</a></span>
+              <span class="links"><a href="https://www.researchgate.net/publication/329980556_Deep_Learning_for_Human_Affect_Recognition_Insights_and_New_Developments">ResearchGate</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="/images/ecis.png">
+          </div>
+          <div class="content">
+            <a class="header">Using deep learning and 360 video to detect eating behavior for user assistance systems</a>
+            <div class="authors">
+              <span><u>Philipp V. Rouast</u>, Marc T. P. Adam, Tracy Burrows, Raymond Chiong, Megan Rollo</span>
+            </div>
+            <div class="meta">
+              <span>European Conference on Information Systems (ECIS 2018)</span>
+            </div>
+            <div class="description">
+              <p>
+                The rising prevalence of non-communicable diseases calls for more sophisticated approaches to support individuals in engaging in healthy lifestyle behaviors, particularly in terms of their dietary intake. Building on recent advances in information technology, user assistance systems hold the potential of combining active and passive data collection methods to monitor dietary intake and, subsequently, to support individuals in making better decisions about their diet. In this paper, we review the state-of-the-art in active and passive dietary monitoring along with the issues being faced. Building on this groundwork, we propose a research framework for user assistance systems that combine active and passive methods with three distinct levels of assistance. Finally, we outline a proof-of-concept study using video obtained from a 360-degree camera to automatically detect eating behavior from video data as a source of passive dietary monitoring for decision support.
+              </p>
+            </div>
+            <div class="extra">
+              <span class="links"><a href="https://aisel.aisnet.org/ecis2018_rp/101/">AIS eLibrary</a></span>
+              <span class="links"><a href="https://scholar.google.com.au/scholar?cluster=15963458291069625288">Google Scholar</a></span>
+              <span class="links"><a href="https://www.researchgate.net/publication/328475515_Using_Deep_Learning_and_360_Video_to_Detect_Eating_Behavior_for_User_Assistance_Systems">ResearchGate</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Timeline -->
+  <div id="timeline" class="segment">
+    <div class="ui center aligned text container">
+      <h2 class="ui header">Timeline</h2>
+      <h5 class="ui horizontal divider header">
+        <i class="graduation cap icon"></i>
+        Timeline of my positions and education.
+      </h5>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui text container">
+      <div class="ui stackable divided two column grid">
+        <div class="column">
+          <center><h3>Positions</h3></center>
+          <div class="ui large feed">
+            <div class="event">
+              <div class="label">
+                <img src="/images/uon.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.newcastle.edu.au/">The University of Newcastle</a>: Teaching Assistant (<a href="https://www.newcastle.edu.au/about-uon/governance-and-leadership/faculties-and-schools/faculty-of-engineering-and-built-environment/school-of-electrical-engineering-and-computing">SEEC</a>)
+                  <div class="date">
+                    2015; 2017 - now
+                  </div>
+                </div>
+                <div class="extra text">
+                  <ul class="ui list">
+                    <li>EBUS3050: The Digital Economy</li>
+                    <li>INFT2150: Business Analysis</li>
+                    <li>INFT6201: Big Data</li>
+                    <li>COMP1010: Computing Fundamentals</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/kit.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.kit.edu/english/index.php">Karlsruhe Institute of Technology</a>: Student Research Assistant (<a href="https://im.iism.kit.edu/english/index.php">IISM</a>)
+                  <div class="date">
+                    2012 - 2015; 2016
+                  </div>
+                </div>
+                <div class="extra text">
+                  <ul class="ui list">
+                    <li>Development of a web-based prediction market (Groovy/Grails)</li>
+                    <li>Development of experiment platform <a href="https://im.iism.kit.edu/1093_1100.php">Brownie</a> (Java)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/msg_gillardon.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.msg-gillardon.de/">msgGillardon AG</a>: Internship
+                  <div class="date">
+                    2013 - 2014
+                  </div>
+                </div>
+                <div class="extra text">
+                  <ul class="ui list">
+                    <li>Evaluation of assumptions in the Credit Risk Model <i>CreditMetrics</i></li>
+                    <li>Implementing improvements for Loss Given Default estimation for retail credits</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/kit.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.kit.edu/english/index.php">Karlsruhe Institute of Technology</a>: Teaching Assistant (<a href="aifb.kit.edu/web/Hauptseite/en">AIFB</a>)
+                  <div class="date">
+                    2011 - 2012
+                  </div>
+                </div>
+                <div class="extra text">
+                  <ul class="ui list">
+                    <li>Programming I: Java</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <center><h3>Education</h3></center>
+          <div class="ui large feed">
+            <div class="event">
+              <div class="label">
+                <img src="/images/uon.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.newcastle.edu.au/">The University of Newcastle</a>: PhD
+                  <div class="date">
+                    2017 - now
+                  </div>
+                </div>
+                <div class="ui small label">
+                  <i class="yellow star icon"></i> Int. Postgraduate Research Scholarship
+                </div>
+                <div class="ui small label">
+                  <i class="yellow trophy icon"></i> <a href="https://www.acphis.org.au">ACPHIS</a> Student Project Award 2017
+                </div>
+                <div class="ui small label">
+                  <i class="yellow trophy icon"></i> 2017 UON FEBE Postgraduate Research Prize
+                </div>
+                <div class="extra text">
+                  <b>Thesis</b>: Using deep learning to detect food intake behaviour from video.
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/kit.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.kit.edu/english/index.php">Karlsruhe Institute of Technology</a>: MSc
+                  <div class="date">
+                    2014 - 2016
+                  </div>
+                </div>
+                <div class="ui small label">
+                  <i class="yellow trophy icon"></i> Future Award 2016: Category Health
+                </div>
+                <div class="ui small label">
+                  <i class="yellow star icon"></i> DAAD FIT Worldwide Scholarship
+                </div>
+                <div class="ui small label">
+                  <i class="yellow star icon"></i> BW Study Abroad Scholarship
+                </div>
+                <div class="extra text">
+                  <b>Thesis</b>: Contactless Heart Rate Measurement Using Facial Video: A Real-Time Approach and Evaluation in Information Systems.
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/kit.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a href="https://www.kit.edu/english/index.php">Karlsruhe Institute of Technology</a>: BSc
+                  <div class="date">
+                    2010 - 2013
+                  </div>
+                </div>
+                <div class="extra text">
+                  <b>Thesis</b>: Partisan Trading Activity: Investigation of a Political Stock Market.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui six column center aligned grid">
+        <div class="one wide column">
+          <a class="ui white link" href="https://github.com/prouast">
+            <i class="github large icon"></i>
+          </a>
+        </div>
+        <div class="one wide column">
+          <a class="ui white link" href="https://scholar.google.com.au/citations?user=Ny9vtjcAAAAJ&hl=en">
+            <i class="google large icon"></i>
+          </a>
+        </div>
+        <div class="one wide column">
+          <a class="ui white link" href="https://www.instagram.com/prouast/">
+            <i class="instagram large icon"></i>
+          </a>
+        </div>
+        <div class="one wide column">
+          <a class="ui white link" href="https://www.linkedin.com/in/prouast">
+            <i class="linkedin large icon"></i>
+          </a>
+        </div>
+        <div class="one wide column">
+          <a class="ui white link" href="https://stackoverflow.com/users/3595278/prouast">
+            <i class="stack overflow large icon"></i>
+          </a>
+        </div>
+        <div class="one wide column">
+          <a class="ui white link" href="https://www.twitter.com/prouast">
+            <i class="twitter large icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- inject:js -->
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <!-- endinject -->
+
+</body>
+
+</html>
