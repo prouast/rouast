@@ -7,23 +7,11 @@
   <meta name="author" content="Philipp Rouast">
   <!-- site properties -->
   <title>Philipp Rouast</title>
-  <style type="text/css">
-    .ui.inverted.segment {
-      padding: 7em 0em;
-    }
-    .segment {
-      margin: 7em 0em;
-    }
-    .ui.footer.segment {
-      margin: 5em 0em 0em;
-      padding: 7em 0em;
-    }
-    .ui.white.link {
-      color: #ffffff;
-    }
-  </style>
-  <!-- inject:css -->
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <!-- inject:css/js -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js"></script>
   <!-- endinject -->
 </head>
 <body>
@@ -41,7 +29,7 @@
   <!-- Intro -->
   <div class="ui inverted vertical center aligned segment">
     <div class="ui text container">
-      <center><img class="ui small circular image" src="/images/prouast.png"></center>
+      <center><img class="ui small circular image" src="/img/prouast.jpg"></center>
       <h1 class="ui inverted header">
         Philipp Rouast
       </h1>
@@ -54,7 +42,7 @@
   </div>
   <!-- Projects -->
   <div id="projects" class="segment">
-    <div class="ui center aligned text container">
+    <div class="ui center aligned container">
       <h2 class="ui header">Projects</h2>
       <h5 class="ui horizontal divider header">
         <i class="wrench icon"></i>
@@ -62,20 +50,22 @@
       </h5>
     </div>
     <div class="ui hidden divider"></div>
-    <div class="ui text container">
-      <div class="ui two stackable cards">
+    <div class="ui container">
+      <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
-            <img src="/images/intake_detection.png">
+            <img src="/img/intake_detection.jpg">
           </div>
           <div class="content">
             <a class="header">Intake gesture detection</a>
             <div class="meta">
+              <i class="calendar icon"></i>
               <span class="date">2018 - 2019</span>
-            </div>
-            <div class="meta">
-              <span class="date">Python</span>
-              <span class="date">TensorFlow</span>
+              <i class="building icon"></i>
+              <span class="partner">UON</span>
+              <i class="file code icon"></i>
+              <span class="code">Python</span>
+              <span class="code">TensorFlow</span>
             </div>
             <div class="description">
               Automatic detection of individual intake gestures based on 360-degree video and deep learning.
@@ -92,17 +82,18 @@
         </div>
         <div class="ui card">
           <div class="image">
-            <img src="/images/rppg.png">
+            <img src="/img/rppg.jpg">
           </div>
           <div class="content">
             <a class="header">rPPG</a>
             <div class="meta">
+              <i class="calendar icon"></i>
               <span class="date">2015 - 2016</span>
-            </div>
-            <div class="meta">
-              <span class="date">C++</span>
-              <span class="date">Java</span>
-              <span class="date">OpenCV</span>
+              <i class="building icon"></i>
+              <span class="partner">UON/KIT</span>
+              <i class="file code icon"></i>
+              <span class="code">C++</span>
+              <span class="code">OpenCV</span>
             </div>
             <div class="description">
               Heart rate measurement based on face video, implemented for desktop and mobile.
@@ -125,16 +116,18 @@
         </div>
         <div class="ui card">
           <div class="image">
-            <img src="/images/equirectangular-remap.jpg">
+            <img src="/img/equirectangular-remap.jpg">
           </div>
           <div class="content">
             <a class="header">Equirectangular remap</a>
             <div class="meta">
+              <i class="calendar icon"></i>
               <span class="date">2017</span>
-            </div>
-            <div class="meta">
-              <span class="date">C</span>
-              <span class="date">ffmpeg</span>
+              <i class="building icon"></i>
+              <span class="partner">UON</span>
+              <i class="file code icon"></i>
+              <span class="code">C</span>
+              <span class="code">ffmpeg</span>
             </div>
             <div class="description">
               Generate maps for conversions from spherical to equirectangular in ffmpeg.
@@ -151,14 +144,14 @@
         </div>
         <div class="ui card">
           <div class="image">
-            <img src="/images/cryptocurrency-analysis.png">
+            <img src="/img/cryptocurrency-analysis.jpg">
           </div>
           <div class="content">
             <a class="header">Cryptocurrency analysis</a>
             <div class="meta">
+              <i class="calendar icon"></i>
               <span class="date">2017</span>
-            </div>
-            <div class="meta">
+              <i class="file code icon"></i>
               <span class="date">R</span>
             </div>
             <div class="description">
@@ -174,12 +167,68 @@
             </a>
           </div>
         </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/img/brownie.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Brownie</a>
+            <div class="meta">
+              <i class="calendar icon"></i>
+              <span class="date">2016</span>
+              <i class="building icon"></i>
+              <span class="partner">KIT</span>
+              <i class="file code icon"></i>
+              <span class="date">Java</span>
+            </div>
+            <div class="description">
+              A NeuroIS tool for conducting economic experiments.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://im.iism.kit.edu/1093_1100.php">
+              <button class="ui button">
+                <i class="home icon"></i>
+                Project Page
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/img/planspiel.png">
+          </div>
+          <div class="content">
+            <a class="header">Planspiel Flächenhandel</a>
+            <div class="meta">
+              <i class="calendar icon"></i>
+              <span class="date">2014</span>
+              <i class="building icon"></i>
+              <span class="partner">KIT</span>
+              <i class="file code icon"></i>
+              <span class="date">Java</span>
+              <span class="date">JavaScript</span>
+              <span class="date">Grails</span>
+            </div>
+            <div class="description">
+              Web-based simulation game for emissions certificate trading.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="http://www.flaechenhandel.de/index.html">
+              <button class="ui button">
+                <i class="home icon"></i>
+                Project Page
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- Publications -->
   <div id="publications" class="segment">
-    <div class="ui center aligned text container">
+    <div class="ui center aligned container">
       <h2 class="ui header">Publications</h2>
       <h5 class="ui horizontal divider header">
         <i class="pencil alternate icon"></i>
@@ -187,14 +236,13 @@
       </h5>
     </div>
     <div class="ui hidden divider"></div>
-    <div class="ui text container">
+    <div class="ui container">
       <div class="ui items">
         <div class="item">
           <div class="image">
-            <img src="/images/intake_detection_1.gif">
-            <img src="/images/intake_detection_2.gif">
-            <img src="/images/intake_detection_3.gif">
-            <img src="/images/intake_detection_4.gif">
+            <img src="/img/intake_detection_1.gif">
+            <img src="/img/intake_detection_2.gif">
+            <img src="/img/intake_detection_3.gif">
           </div>
           <div class="content">
             <a class="header">Learning Deep Representations for Video-based Intake Gesture Detection</a>
@@ -219,7 +267,7 @@
         </div>
         <div class="item">
           <div class="image">
-            <img src="/images/affect_recognition.png">
+            <img src="/img/affect_recognition.png">
           </div>
           <div class="content">
             <a class="header">Deep Learning for Human Affect Recognition: Insights and New Developments</a>
@@ -244,7 +292,7 @@
         </div>
         <div class="item">
           <div class="image">
-            <img src="/images/ecis.png">
+            <img src="/img/ecis.png">
           </div>
           <div class="content">
             <a class="header">Using deep learning and 360 video to detect eating behavior for user assistance systems</a>
@@ -271,7 +319,7 @@
   </div>
   <!-- Timeline -->
   <div id="timeline" class="segment">
-    <div class="ui center aligned text container">
+    <div class="ui center aligned container">
       <h2 class="ui header">Timeline</h2>
       <h5 class="ui horizontal divider header">
         <i class="graduation cap icon"></i>
@@ -279,14 +327,14 @@
       </h5>
     </div>
     <div class="ui hidden divider"></div>
-    <div class="ui text container">
+    <div class="ui container">
       <div class="ui stackable divided two column grid">
         <div class="column">
           <center><h3>Positions</h3></center>
           <div class="ui large feed">
             <div class="event">
               <div class="label">
-                <img src="/images/uon.png">
+                <img src="/img/uon.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -307,7 +355,7 @@
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/kit.png">
+                <img src="/img/kit.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -326,7 +374,7 @@
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/msg_gillardon.png">
+                <img src="/img/msg.jpg">
               </div>
               <div class="content">
                 <div class="summary">
@@ -345,7 +393,7 @@
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/kit.png">
+                <img src="/img/kit.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -368,7 +416,7 @@
           <div class="ui large feed">
             <div class="event">
               <div class="label">
-                <img src="/images/uon.png">
+                <img src="/img/uon.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -393,7 +441,7 @@
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/kit.png">
+                <img src="/img/kit.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -418,7 +466,7 @@
             </div>
             <div class="event">
               <div class="label">
-                <img src="/images/kit.png">
+                <img src="/img/kit.png">
               </div>
               <div class="content">
                 <div class="summary">
@@ -474,12 +522,6 @@
       </div>
     </div>
   </div>
-  <!-- inject:js -->
-  <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-  <script src="semantic/dist/semantic.min.js"></script>
   <!-- endinject -->
 
 </body>

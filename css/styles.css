@@ -1,0 +1,18 @@
+/*!
+ Philipp Rouast page */
+.ui.text.container {
+  max-width: 900;
+}
+.ui.inverted.segment {
+  padding: 7em 0em;
+}
+.segment {
+  margin: 7em 0em;
+}
+.ui.footer.segment {
+  margin: 5em 0em 0em;
+  padding: 7em 0em;
+}
+.ui.white.link {
+  color: #ffffff;
+}
