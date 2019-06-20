@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: rouast.com
+Token: d97056defe08b494c0aac83773fa18f49a3ce3ff3821c58b87b525c67440d0c7
