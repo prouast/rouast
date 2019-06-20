@@ -1,8 +1,5 @@
 /*!
  Philipp Rouast page */
-.ui.text.container {
-  max-width: 900;
-}
 .ui.inverted.segment {
   padding: 7em 0em;
 }
@@ -15,4 +12,13 @@
 }
 .ui.white.link {
   color: #ffffff;
+}
+#hidableProjects {
+  display: none;
+}
+#moreTAC {
+  display: none;
+}
+#moreECIS {
+  display: none;
 }

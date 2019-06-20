@@ -12,18 +12,27 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.css">
   <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92777237-2"></script>
+  <script src="js/script.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-92777237-2');
+  </script>
   <!-- endinject -->
 </head>
 <body>
   <!-- Fixed menu -->
-  <div class="ui fixed inverted menu">
+  <div class="ui fixed inverted large menu">
     <div class="ui container">
-      <a href="#top" class="item">
+      <a href="#top" class="item" id="topMenu">
         <i class="home icon"></i>
       </a>
-      <a href="#projects" class="item">Projects</a>
-      <a href="#publications" class="item">Publications</a>
-      <a href="#timeline" class="item">Timeline</a>
+      <a href="#projects" class="item" id="projectsMenu">Projects</a>
+      <a href="#publications" class="item" id="publicationsMenu">Publications</a>
+      <a href="#timeline" class="item" id="timelineMenu">Timeline</a>
     </div>
   </div>
   <!-- Intro -->
@@ -142,6 +151,10 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="ui container" id="hidableProjects">
+      <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
             <img src="/img/cryptocurrency-analysis.jpg">
@@ -225,6 +238,12 @@
         </div>
       </div>
     </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui center aligned container">
+      <button id="projectsButton" class="ui primary button">
+        Show more
+      </button>
+    </div>
   </div>
   <!-- Publications -->
   <div id="publications" class="segment">
@@ -240,33 +259,6 @@
       <div class="ui items">
         <div class="item">
           <div class="image">
-            <img src="/img/intake_detection_1.gif">
-            <img src="/img/intake_detection_2.gif">
-            <img src="/img/intake_detection_3.gif">
-          </div>
-          <div class="content">
-            <a class="header">Learning Deep Representations for Video-based Intake Gesture Detection</a>
-            <div class="athors">
-              <span><u>Philipp V. Rouast</u>, Marc T. P. Adam</span>
-            </div>
-            <div class="meta">
-              <span>IEEE Journal of Biomedical and Health Informatics</span>
-            </div>
-            <div class="description">
-              <p>
-                Automatic detection of individual intake gestures during eating occasions has the potential to improve food intake monitoring and support dietary recommendations. Existing studies typically make use of on-body solutions such as inertial and audio sensors, while video is used as ground truth. Intake gesture detection directly based on video has rarely been attempted. Here we show that novel deep learning architectures can successfully be applied to video-based detection of intake gestures. For this purpose, we use labeled video data of eating occasions based on 360-degree video. We select state-of-the-art approaches from video action recognition and apply them to the problem of intake gesture detection, achieving an F1 score of 0.858 for the best model. The results show that appearance features contribute more than motion features, and that temporal context in form of multiple video frames is useful as model input.
-              </p>
-            </div>
-            <div class="extra">
-              <span class="links"><a>arXiv</a></span>
-              <span class="links"><a>Google Scholar</a></span>
-              <span class="links"><a>IEEE Xplore</a></span>
-              <span class="links"><a>ResearchGate</a></span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="image">
             <img src="/img/affect_recognition.png">
           </div>
           <div class="content">
@@ -279,10 +271,15 @@
             </div>
             <div class="description">
               <p>
-                Automatic human affect recognition is a key step towards more natural human-computer interaction. Recent trends include recognition in the wild using a fusion of audiovisual and physiological sensors, a challenging setting for conventional machine learning algorithms. Since 2010, novel deep learning algorithms have been applied increasingly in this field. In this paper, we review the literature on human affect recognition between 2010 and 2017, with a special focus on approaches using deep neural networks. By classifying a total of 950 studies according to their usage of shallow or deep architectures, we are able to show a trend towards deep learning. Reviewing a subset of 233 studies that employ deep neural networks, we comprehensively quantify their applications in this field. We find that deep learning is used for learning of (i) spatial feature representations, (ii) temporal feature representations, and (iii) joint feature representations for multimodal sensor data. Exemplary state-of-the-art architectures illustrate the recent progress. Our findings show the role deep architectures will play in human affect recognition, and can serve as a reference point for researchers working on related applications.
+                Automatic human affect recognition is a key step towards more natural human-computer interaction. Recent trends include recognition in the wild using a fusion of audiovisual and physiological sensors, a challenging setting for conventional machine learning algorithms. Since 2010, novel deep learning algorithms have been applied increasingly in this field.
+                <span id="dotsTAC">...</span>
+                <span id="moreTAC">
+                  In this paper, we review the literature on human affect recognition between 2010 and 2017, with a special focus on approaches using deep neural networks. By classifying a total of 950 studies according to their usage of shallow or deep architectures, we are able to show a trend towards deep learning. Reviewing a subset of 233 studies that employ deep neural networks, we comprehensively quantify their applications in this field. We find that deep learning is used for learning of (i) spatial feature representations, (ii) temporal feature representations, and (iii) joint feature representations for multimodal sensor data. Exemplary state-of-the-art architectures illustrate the recent progress. Our findings show the role deep architectures will play in human affect recognition, and can serve as a reference point for researchers working on related applications.
+                </span>
               </p>
             </div>
             <div class="extra">
+              <a class="ui primary label" id="buttonTAC">Read more</a>
               <span class="links"><a href="https://arxiv.org/abs/1901.02884">arXiv</a></span>
               <span class="links"><a href="https://scholar.google.com.au/scholar?cluster=17643367748425293417">Google Scholar</a></span>
               <span class="links"><a href="https://ieeexplore.ieee.org/abstract/document/8598999/">IEEE Xplore</a></span>
@@ -304,10 +301,15 @@
             </div>
             <div class="description">
               <p>
-                The rising prevalence of non-communicable diseases calls for more sophisticated approaches to support individuals in engaging in healthy lifestyle behaviors, particularly in terms of their dietary intake. Building on recent advances in information technology, user assistance systems hold the potential of combining active and passive data collection methods to monitor dietary intake and, subsequently, to support individuals in making better decisions about their diet. In this paper, we review the state-of-the-art in active and passive dietary monitoring along with the issues being faced. Building on this groundwork, we propose a research framework for user assistance systems that combine active and passive methods with three distinct levels of assistance. Finally, we outline a proof-of-concept study using video obtained from a 360-degree camera to automatically detect eating behavior from video data as a source of passive dietary monitoring for decision support.
+                The rising prevalence of non-communicable diseases calls for more sophisticated approaches to support individuals in engaging in healthy lifestyle behaviors, particularly in terms of their dietary intake. Building on recent advances in information technology, user assistance systems hold the potential of combining active and passive data collection methods to
+                <span id="dotsECIS">...</span>
+                <span id="moreECIS">
+                  monitor dietary intake and, subsequently, to support individuals in making better decisions about their diet. In this paper, we review the state-of-the-art in active and passive dietary monitoring along with the issues being faced. Building on this groundwork, we propose a research framework for user assistance systems that combine active and passive methods with three distinct levels of assistance. Finally, we outline a proof-of-concept study using video obtained from a 360-degree camera to automatically detect eating behavior from video data as a source of passive dietary monitoring for decision support.
+                </span>
               </p>
             </div>
             <div class="extra">
+              <a class="ui primary label" id="buttonECIS">Read more</a>
               <span class="links"><a href="https://aisel.aisnet.org/ecis2018_rp/101/">AIS eLibrary</a></span>
               <span class="links"><a href="https://scholar.google.com.au/scholar?cluster=15963458291069625288">Google Scholar</a></span>
               <span class="links"><a href="https://www.researchgate.net/publication/328475515_Using_Deep_Learning_and_360_Video_to_Detect_Eating_Behavior_for_User_Assistance_Systems">ResearchGate</a></span>
@@ -522,8 +524,5 @@
       </div>
     </div>
   </div>
-  <!-- endinject -->
-
 </body>
-
 </html>
