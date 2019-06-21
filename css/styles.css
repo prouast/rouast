@@ -18,6 +18,7 @@
 }
 #hidableProjects {
   display: none;
+  padding-top: 20px;
 }
 #moreTAC {
   display: none;
@@ -33,4 +34,5 @@
 }
 #hidablePublications {
   display: none;
+  padding-top: 20px;
 }
