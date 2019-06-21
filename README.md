@@ -20,7 +20,7 @@ I use two buckets as outlined in [this guide](https://docs.aws.amazon.com/Amazon
 
 3. Get a certificate from Amazon Certificate Manager
 
-For secure `HTTPS` access to the website, Amazon offers free `SSL` certificates at [ACM](https://ap-southeast-2.console.aws.amazon.com/acm/home?region=ap-southeast-2#/firstrun/).
+For secure `HTTPS` access to the website, Amazon offers free `SSL` certificates at [ACM](https://aws.amazon.com/certificate-manager/).
 
 4. Configure Amazon CloudFront
 
