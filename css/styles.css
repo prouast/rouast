@@ -13,6 +13,9 @@
 .ui.white.link {
   color: #ffffff;
 }
+.ui.white.link:hover {
+  color: #B3B3B3;
+}
 #hidableProjects {
   display: none;
 }
@@ -20,5 +23,14 @@
   display: none;
 }
 #moreECIS {
+  display: none;
+}
+#moreFCS {
+  display: none;
+}
+#moreAITIC {
+  display: none;
+}
+#hidablePublications {
   display: none;
 }
