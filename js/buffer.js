@@ -1,6 +1,6 @@
-
-// A buffer that keeps the most recent 16 video frames
-
+/**
+ * A buffer that keeps the most recent 16 video frames
+ */
 export class VideoBuffer {
   constructor(numFrames) {
     this.numFrames = numFrames;
@@ -16,7 +16,7 @@ export class VideoBuffer {
       this.frames = tf.keep(frame.expandDims(0));
     } else {
       const oldFrames = this.frames;
-      this.frames = tf.keep(oldFrames.concat(frame, 0));
+      this.frames = tf.keep(oldFrames.concat(frame.expandDims(0), 0));
       oldFrames.dispose();
     }
     // Remove oldest frame if buffer is already full
@@ -25,5 +25,6 @@ export class VideoBuffer {
       this.frames = tf.keep(oldFrames.slice([1, 0, 0, 0], this.numFrames))
       oldFrames.dispose();
     }
+    return this.frames.shape[0] == this.numFrames
   }
 }
