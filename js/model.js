@@ -16,21 +16,23 @@ let model;
 // Push a frame into the videoBuffer
 async function pushFrame() {
   const frame = await webcam.capture();
-  const ready = tf.tidy(() =>
-    videoBuffer.updateWithFrame(frame.toFloat().div(127).sub(1)));
+  const ready = tf.tidy(() => videoBuffer.updateWithFrame(frame));
   frame.dispose();
   if (ready) {
-    // TODO ready for prediction?
+    // Ready for prediction
+    predict()
   }
 }
 
 async function init() {
   try {
-    const videoElement = document.createElement('video');
-    videoElement.width = 128;
-    videoElement.height = 128;
-    webcam = await tf.data.webcam(videoElement);
-    //webcam = await tf.webcam(document.getElementById('videoElement'));
+    const webcamConfig = {
+      facingMode: 'user',
+      resizeWidth: 128.0,
+      resizeHeight: 128.0,
+      centerCrop: true
+    }
+    webcam = await tf.data.webcam(document.getElementById('webcam', webcamConfig));
   } catch (e) {
     console.log(e);
   }
@@ -43,8 +45,40 @@ async function init() {
   //clearInterval(timer)
 
   //  ui.init();
+}
 
-  // TODO warm up the model?
+function standardization(frames) {
+  const num_pixels = tf.prod(frames.shape);
+  const mean = tf.mean(frames);
+  const stddev = tf.sqrt(tf.relu(tf.sub(tf.mean(tf.square(frames)), tf.square(mean))))
+  const min_stddev = tf.rsqrt(tf.cast(num_pixels, 'float32'))
+  const pixel_value_scale = tf.maximum(stddev, min_stddev)
+  const normFrames = tf.div(tf.sub(frames, mean), pixel_value_scale);
+  return normFrames;
+}
+
+async function predict() {
+
+  // Try 2D model why maxPool3D is not supported yet
+  const frame = videoBuffer.frames.slice(NUM_FRAMES - 1);
+
+
+  const normFrame = tf.tidy(() => standardization(frame.toFloat()));
+  frame.dispose();
+
+  // const t0 = performance.now();
+  const logits = model.predict(normFrame);
+  const p = (await logits.data());
+
+  normFrame.dispose();
+
+  console.log(p);
+
+  // const t1 = performance.now();
+  // console.log("inference took " + (t1 - t0) + " milliseconds.");
+  // console.log('tf.memory(): ', tf.memory());
+
+  //await tf.nextFrame();
 }
 
 
