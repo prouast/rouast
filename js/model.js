@@ -13,17 +13,6 @@ const videoBuffer = new VideoBuffer(NUM_FRAMES);
 // The model.
 let model;
 
-// Push a frame into the videoBuffer
-async function pushFrame() {
-  const frame = await webcam.capture();
-  const ready = tf.tidy(() => videoBuffer.updateWithFrame(frame));
-  frame.dispose();
-  if (ready) {
-    // Ready for prediction
-    predict()
-  }
-}
-
 async function init() {
   try {
     const webcamConfig = {
@@ -32,7 +21,7 @@ async function init() {
       resizeHeight: 128.0,
       centerCrop: true
     }
-    webcam = await tf.data.webcam(document.getElementById('webcam', webcamConfig));
+    webcam = await tf.data.webcam(document.getElementById('webcam'), webcamConfig);
   } catch (e) {
     console.log(e);
   }
@@ -44,7 +33,7 @@ async function init() {
 
   //clearInterval(timer)
 
-  //  ui.init();
+  //ui.init();
 }
 
 function standardization(frames) {
@@ -57,30 +46,41 @@ function standardization(frames) {
   return normFrames;
 }
 
+let isPredicting = false;
+
 async function predict() {
+  while (isPredicting) {
+    // Get input frames
+    // Try 2D model why maxPool3D is not supported yet
+    const frame = videoBuffer.frames.slice(NUM_FRAMES - 1);
+    // Normalize the frames
+    const normFrame = tf.tidy(() => standardization(frame.toFloat()));
+    frame.dispose();
+    // const t0 = performance.now();
+    // Run inference
+    const logits = model.predict(normFrame);
+    normFrame.dispose();
+    const p = tf.softmax(logits.flatten());
+    // const t1 = performance.now();
+    // console.log("inference took " + (t1 - t0) + " milliseconds.");
+    // console.log('tf.memory(): ', tf.memory());
+    p.print();
 
-  // Try 2D model why maxPool3D is not supported yet
-  const frame = videoBuffer.frames.slice(NUM_FRAMES - 1);
-
-
-  const normFrame = tf.tidy(() => standardization(frame.toFloat()));
-  frame.dispose();
-
-  // const t0 = performance.now();
-  const logits = model.predict(normFrame);
-  const p = (await logits.data());
-
-  normFrame.dispose();
-
-  console.log(p);
-
-  // const t1 = performance.now();
-  // console.log("inference took " + (t1 - t0) + " milliseconds.");
-  // console.log('tf.memory(): ', tf.memory());
-
-  //await tf.nextFrame();
+    await tf.nextFrame();
+  }
 }
 
+// Push a frame into the videoBuffer
+async function pushFrame() {
+  const frame = await webcam.capture();
+  const ready = tf.tidy(() => videoBuffer.updateWithFrame(frame));
+  frame.dispose();
+  if (ready) {
+    // Ready for prediction
+    isPredicting = true;
+    predict()
+  }
+}
 
 // Initialize the application.
 init();
