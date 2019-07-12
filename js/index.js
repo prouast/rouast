@@ -28,26 +28,26 @@ $(document).ready(function() {
     evt.preventDefault();
     if ($("#hidableProjects").css("display") == "none") {
       $("#hidableProjects").show(0);
-      $("#projectsButton").html("Show less")
-      $("#projectsButton").removeClass("primary")
+      $("#projectsButton").html("Show less");
+      $("#projectsButton").removeClass("primary");
     }
     else {
       $("#hidableProjects").hide(0);
-      $("#projectsButton").html("Show more")
-      $("#projectsButton").addClass("primary")
+      $("#projectsButton").html("Show more");
+      $("#projectsButton").addClass("primary");
     }
   });
   $("#publicationsButton").click(function(evt){
     evt.preventDefault();
     if ($("#hidablePublications").css("display") == "none") {
       $("#hidablePublications").show(0);
-      $("#publicationsButton").html("Show less")
-      $("#publicationsButton").removeClass("primary")
+      $("#publicationsButton").html("Show less");
+      $("#publicationsButton").removeClass("primary");
     }
     else {
       $("#hidablePublications").hide(0);
-      $("#publicationsButton").html("Show more")
-      $("#publicationsButton").addClass("primary")
+      $("#publicationsButton").html("Show more");
+      $("#publicationsButton").addClass("primary");
     }
   });
   $("#buttonTAC").click(function(evt){
@@ -55,14 +55,14 @@ $(document).ready(function() {
     if ($("#moreTAC").css("display") == "none") {
       $("#dotsTAC").toggle();
       $("#moreTAC").toggle();
-      $("#buttonTAC").html("Read less")
-      $("#buttonTAC").removeClass("primary")
+      $("#buttonTAC").html("Read less");
+      $("#buttonTAC").removeClass("primary");
     }
     else {
       $("#dotsTAC").toggle();
       $("#moreTAC").toggle();
-      $("#buttonTAC").html("Read more")
-      $("#buttonTAC").addClass("primary")
+      $("#buttonTAC").html("Read more");
+      $("#buttonTAC").addClass("primary");
     }
   });
   $("#buttonECIS").click(function(evt){
@@ -70,14 +70,14 @@ $(document).ready(function() {
     if ($("#moreECIS").css("display") == "none") {
       $("#dotsECIS").toggle();
       $("#moreECIS").toggle();
-      $("#buttonECIS").html("Read less")
-      $("#buttonECIS").removeClass("primary")
+      $("#buttonECIS").html("Read less");
+      $("#buttonECIS").removeClass("primary");
     }
     else {
       $("#dotsECIS").toggle();
       $("#moreECIS").toggle();
-      $("#buttonECIS").html("Read more")
-      $("#buttonECIS").addClass("primary")
+      $("#buttonECIS").html("Read more");
+      $("#buttonECIS").addClass("primary");
     }
   });
   $("#buttonFCS").click(function(evt){
@@ -85,14 +85,14 @@ $(document).ready(function() {
     if ($("#moreFCS").css("display") == "none") {
       $("#dotsFCS").toggle();
       $("#moreFCS").toggle();
-      $("#buttonFCS").html("Read less")
-      $("#buttonFCS").removeClass("primary")
+      $("#buttonFCS").html("Read less");
+      $("#buttonFCS").removeClass("primary");
     }
     else {
       $("#dotsFCS").toggle();
       $("#moreFCS").toggle();
-      $("#buttonFCS").html("Read more")
-      $("#buttonFCS").addClass("primary")
+      $("#buttonFCS").html("Read more");
+      $("#buttonFCS").addClass("primary");
     }
   });
   $("#buttonAITIC").click(function(evt){
@@ -100,23 +100,26 @@ $(document).ready(function() {
     if ($("#moreAITIC").css("display") == "none") {
       $("#dotsAITIC").toggle();
       $("#moreAITIC").toggle();
-      $("#buttonAITIC").html("Read less")
-      $("#buttonAITIC").removeClass("primary")
+      $("#buttonAITIC").html("Read less");
+      $("#buttonAITIC").removeClass("primary");
     }
     else {
       $("#dotsAITIC").toggle();
       $("#moreAITIC").toggle();
-      $("#buttonAITIC").html("Read more")
-      $("#buttonAITIC").addClass("primary")
+      $("#buttonAITIC").html("Read more");
+      $("#buttonAITIC").addClass("primary");
     }
   });
   $("#modal1").click(function() {
-    $('.ui.modal')
+    $('.ui.small.modal')
       .modal({
         onVisible: function() {
           demo = new Demo('webcam', 'chart');
+          $('body')
+            .toast({
+              message: 'I am a toast, nice to meet you !'
+            });
           demo.init();
-
         },
         onHidden: function() {
           demo.stop();
