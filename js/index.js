@@ -115,16 +115,11 @@ $(document).ready(function() {
       .modal({
         onVisible: function() {
           demo = new Demo('webcam', 'chart');
-          $('body')
-            .toast({
-              message: 'I am a toast, nice to meet you !'
-            });
           demo.init();
         },
         onHidden: function() {
           demo.stop();
-        }
-      })
+        }})
       .modal('show');
   });
 });

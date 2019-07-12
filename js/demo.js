@@ -14,6 +14,10 @@ export class Demo {
   }
 
   async init() {
+    this.isPredicting = false;
+    this.videoBuffer = new VideoBuffer(NUM_FRAMES);
+    this.ui = new UI(this.chartId);
+    this.ui.cameraAccess();
     try {
       const webcamConfig = {
         facingMode: 'user',
@@ -24,14 +28,17 @@ export class Demo {
       this.webcam = await tf.data.webcam(
         document.getElementById(this.webcamId), webcamConfig);
     } catch (e) {
+      this.ui.cameraError();
       console.log(e);
+      this.ui.close();
     }
-
-    this.isPredicting = false;
-    this.videoBuffer = new VideoBuffer(NUM_FRAMES);
-    this.ui = new UI(this.chartId);
-    this.timer = setInterval(this.pushFrame.bind(this), 125);
-    this.model = await tf.loadLayersModel('./model/model.json');
+    if (this.webcam != null) {
+      this.timer = setInterval(this.pushFrame.bind(this), 125);
+      this.model = await tf.loadLayersModel('./model/model.json');
+      this.ui.cameraReady();
+      this.ui.modelWaiting();
+      this.waiting = true;
+    }
   }
 
   standardize(frames) {
@@ -50,7 +57,12 @@ export class Demo {
     const ready = tf.tidy(() => this.videoBuffer.updateWithFrame(frame));
     frame.dispose();
     if (ready && !this.isPredicting) {
-      // Ready for prediction
+      if (this.waiting) {
+        // Model is ready
+        this.waiting = false;
+        this.ui.modelReady();
+      }
+      // Predict
       this.predict();
     }
   }

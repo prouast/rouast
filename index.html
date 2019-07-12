@@ -611,15 +611,29 @@
       </div>
     </div>
   </div>
-  <div class="ui modal">
-    <div class="header">Intake gesture detection</div>
+  <div class="ui small modal">
+    <div class="ui active inverted dimmer" id="modal1Dimmer">
+      <div class="ui text loader">Waiting for camera</div>
+    </div>
+    <div class="header">
+      Intake gesture detection (alpha version <i class="flask icon"></i>)
+    </div>
     <div class="content">
-      <div class="webcam-box-outer">
-        <div class="webcam-box-inner">
-          <video autoplay playsinline muted id="webcam" width="192" height="192"></video>
+      <p>In this demo, the small version of our 2D CNN for intake gesture recognition runs directly in your browser. It takes one raw video frame at a time as input to predict the <font color="red">frame-level probability of an intake event</font>. These probabilities are displayed in the graph on the right.</p>
+      <p>For best results, place device on a table and sit such that the upper body fills most of the video.</p>
+      <div class="ui stackable two column grid">
+        <div class="six wide column">
+          <div class="webcam-box-outer">
+            <div class="webcam-box-inner">
+              <video autoplay playsinline muted id="webcam" width="192" height="192"></video>
+            </div>
+          </div>
+        </div>
+        <div class="ten wide column">
+          <div class="ui text loader" id="graph1Loader">Waiting for model</div>
+          <canvas id="chart"></canvas>
         </div>
       </div>
-      <canvas id="chart"></canvas>
     </div>
   </div>
   <!-- JS -->

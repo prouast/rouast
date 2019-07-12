@@ -16,12 +16,67 @@ export class UI {
           data: []
         }]
       },
-      options: {}
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0.0,
+              max: 1.0
+            }
+          }],
+          xAxes: [{
+            display: false
+          }]
+        },
+        tooltips: {enabled: false},
+        hover: {mode: null}
+      }
     });
+  }
+
+  cameraAccess() {
+    $('body').toast({
+      class: 'info',
+      title: 'Camera',
+      showIcon: 'video',
+      closeIcon: true,
+      message: "Please allow camera access to try this demo. No information will leave your browser."
+    });
+  }
+
+  cameraReady() {
+    $('body').toast({
+      class: 'success',
+      title: 'Camera',
+      closeIcon: true,
+      message: "Camera found."
+    });
+    $('#modal1Dimmer').removeClass('active');
+  }
+
+  cameraError() {
+    $('body').toast({
+      class: 'error',
+      title: 'Camera',
+      closeIcon: true,
+      message: "No camera found."
+    });
+  }
+
+  modelWaiting() {
+    $('#graph1Loader').addClass('active');
+  }
+
+  modelReady() {
+    $('#graph1Loader').removeClass('active');
   }
 
   updateChart(p, t) {
     // Add new data
+    console.log(p);
     this.chart.data.labels.push(t);
     this.chart.data.datasets.forEach((dataset) => {
       dataset.data.push(p);
@@ -36,5 +91,9 @@ export class UI {
       });
     }
     this.chart.update();
+  }
+
+  close() {
+    $('.ui.small.modal').modal('hide');
   }
 }
