@@ -1,4 +1,5 @@
 import {VideoBuffer} from './buffer.js';
+import {UI} from './ui.js';
 
 // The number of frames used for prediction.
 const NUM_FRAMES = 16;
@@ -7,8 +8,9 @@ const NUM_FRAMES = 16;
  * Demo for intake gesture detection
  */
 export class Demo {
-  constructor(webcamId) {
+  constructor(webcamId, chartId) {
     this.webcamId = webcamId;
+    this.chartId = chartId
   }
 
   async init() {
@@ -19,13 +21,15 @@ export class Demo {
         resizeHeight: 128.0,
         centerCrop: true
       }
-      this.webcam = await tf.data.webcam(document.getElementById(this.webcamId), webcamConfig);
+      this.webcam = await tf.data.webcam(
+        document.getElementById(this.webcamId), webcamConfig);
     } catch (e) {
       console.log(e);
     }
 
     this.isPredicting = false;
     this.videoBuffer = new VideoBuffer(NUM_FRAMES);
+    this.ui = new UI(this.chartId);
     this.timer = setInterval(this.pushFrame.bind(this), 125);
     this.model = await tf.loadLayersModel('./model/model.json');
   }
@@ -47,35 +51,33 @@ export class Demo {
     frame.dispose();
     if (ready && !this.isPredicting) {
       // Ready for prediction
-      this.isPredicting = true;
       this.predict();
     }
   }
 
+  // Make one prediction
   async predict() {
-    while (this.isPredicting) {
-      // Get input frames
-      // Try 2D model why maxPool3D is not supported yet
-      const frame = this.videoBuffer.frames.slice(NUM_FRAMES - 1);
-      // Normalize the frames
-      const normFrame = tf.tidy(() => this.standardize(frame.toFloat()));
-      frame.dispose();
-      // const t0 = performance.now();
-      // Run inference
-      const logits = this.model.predict(normFrame);
-      normFrame.dispose();
-      const p = tf.softmax(logits.flatten());
-      // const t1 = performance.now();
-      // console.log("inference took " + (t1 - t0) + " milliseconds.");
-      // console.log('tf.memory(): ', tf.memory());
-
-      await tf.nextFrame();
-      p.print();
-    }
+    this.isPredicting = true;
+    // Get input frames
+    // Try 2D model why maxPool3D is not supported yet
+    const frame = this.videoBuffer.frames.slice(NUM_FRAMES - 1);
+    // Normalize the frames
+    const normFrame = tf.tidy(() => this.standardize(frame.toFloat()));
+    frame.dispose();
+    const t0 = performance.now();
+    // Run inference
+    const logits = this.model.predict(normFrame);
+    normFrame.dispose();
+    const p = tf.softmax(logits.flatten());
+    const data = await p.data();
+    this.ui.updateChart(data[1], t0);
+    const t1 = performance.now();
+    this.isPredicting = false;
+    //console.log("inference took " + (t1 - t0) + " milliseconds.");
+    //console.log('tf.memory(): ', tf.memory());
   }
 
   stop() {
-    this.isPredicting = false;
     clearInterval(this.timer);
     this.webcam.stop();
   }

@@ -114,8 +114,9 @@ $(document).ready(function() {
     $('.ui.modal')
       .modal({
         onVisible: function() {
-          demo = new Demo('webcam');
+          demo = new Demo('webcam', 'chart');
           demo.init();
+
         },
         onHidden: function() {
           demo.stop();
