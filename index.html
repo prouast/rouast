@@ -80,13 +80,13 @@
           </div>
           <div class="extra content">
             <a href="https://github.com/prouast/deep-intake-detection">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="github icon"></i>
                 GitHub
               </button>
             </a>
             <a>
-              <button id="modal1" class="ui green button">
+              <button id="intakeModalButton" class="ui small green button">
                 <i class="play icon"></i>
                 Try
               </button>
@@ -114,15 +114,21 @@
           </div>
           <div class="extra content">
             <a href="https://github.com/prouast/heartbeat">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="github icon"></i>
                 GitHub
               </button>
             </a>
             <a href="https://www.youtube.com/watch?v=D_KYv7pXAvQ">
-              <button class="ui youtube button">
+              <button class="ui small youtube button">
                 <i class="youtube icon"></i>
                 YouTube
+              </button>
+            </a>
+            <a>
+              <button id="rppgModalButton" class="ui small green button">
+                <i class="play icon"></i>
+                Try
               </button>
             </a>
           </div>
@@ -148,7 +154,7 @@
           </div>
           <div class="extra content">
             <a href="https://github.com/prouast/equirectangular-remap">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="github icon"></i>
                 GitHub
               </button>
@@ -177,7 +183,7 @@
           </div>
           <div class="extra content">
             <a href="https://github.com/prouast/cryptocurrency-analysis">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="github icon"></i>
                 GitHub
               </button>
@@ -204,7 +210,7 @@
           </div>
           <div class="extra content">
             <a href="https://im.iism.kit.edu/1093_1100.php">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="home icon"></i>
                 Project Page
               </button>
@@ -233,7 +239,7 @@
           </div>
           <div class="extra content">
             <a href="http://www.flaechenhandel.de/index.html">
-              <button class="ui button">
+              <button class="ui small button">
                 <i class="home icon"></i>
                 Project Page
               </button>
@@ -244,7 +250,7 @@
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui center aligned container">
-      <button id="projectsButton" class="ui basic primary button">
+      <button id="projectsButton" class="ui small basic primary button">
         Show more
       </button>
     </div>
@@ -401,7 +407,7 @@
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui center aligned container">
-      <button id="publicationsButton" class="ui basic primary button">
+      <button id="publicationsButton" class="ui small basic primary button">
         Show more
       </button>
     </div>
@@ -611,8 +617,9 @@
       </div>
     </div>
   </div>
-  <div class="ui small modal">
-    <div class="ui active inverted dimmer" id="modal1Dimmer">
+  <!-- Intake demo -->
+  <div class="ui small modal" id="intakeModal">
+    <div class="ui active inverted dimmer" id="intakeModalDimmer">
       <div class="ui text loader">Waiting for camera</div>
     </div>
     <div class="header">
@@ -625,13 +632,35 @@
         <div class="six wide column">
           <div class="webcam-box-outer">
             <div class="webcam-box-inner">
-              <video autoplay playsinline muted id="webcam" width="192" height="192"></video>
+              <video autoplay playsinline muted id="intakeWebcam" width="192" height="192"></video>
             </div>
           </div>
         </div>
         <div class="ten wide column">
-          <div class="ui text loader" id="graph1Loader">Waiting for model</div>
-          <canvas id="chart"></canvas>
+          <div class="ui text loader" id="intakeGraphLoader">Waiting for model</div>
+          <canvas id="intakeChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- rPPG demo -->
+  <div class="ui small modal" id="rppgModal">
+    <div class="ui active inverted dimmer" id="rppgModalDimmer">
+      <div class="ui text loader">Waiting for camera</div>
+    </div>
+    <div class="header">rPPG</div>
+    <div class="content">
+      <p>TODO</p>
+      <div class="ui stackable two column grid">
+        <div class="six wide column">
+          <div class="webcam-box-outer">
+            <div class="webcam-box-inner">
+              <video autoplay playsinline muted id="rppgWebcam" width="192" height="192"></video>
+            </div>
+          </div>
+        </div>
+        <div class="ten wide column">
+          <canvas id="rppgChart"></canvas>
         </div>
       </div>
     </div>
@@ -645,6 +674,7 @@
   <script type="module" src="js/intake/buffer.js"></script>
   <script type="module" src="js/intake/demo.js"></script>
   <script type="module" src="js/intake/ui.js"></script>
+  <script type="module" src="js/rppg/demo.js"></script>
   <!-- /JS -->
 </body>
 </html>

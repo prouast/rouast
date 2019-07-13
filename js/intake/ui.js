@@ -54,7 +54,7 @@ export class UI {
       closeIcon: true,
       message: "Camera found."
     });
-    $('#modal1Dimmer').removeClass('active');
+    $('#intakeModalDimmer').removeClass('active');
   }
 
   cameraError() {
@@ -67,11 +67,11 @@ export class UI {
   }
 
   modelWaiting() {
-    $('#graph1Loader').addClass('active');
+    $('#intakeGraphLoader').addClass('active');
   }
 
   modelReady() {
-    $('#graph1Loader').removeClass('active');
+    $('#intakeGraphLoader').removeClass('active');
   }
 
   updateChart(p, t) {
@@ -94,6 +94,6 @@ export class UI {
   }
 
   close() {
-    $('.ui.small.modal').modal('hide');
+    $('#intakeModal').modal('hide');
   }
 }
