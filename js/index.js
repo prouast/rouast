@@ -1,7 +1,7 @@
 
-import {Demo} from './demo.js';
+import {IntakeDemo} from './intake/demo.js';
 
-let demo;
+let intakeDemo;
 
 $(document).ready(function() {
   $("#topMenu").click(function() {
@@ -114,11 +114,11 @@ $(document).ready(function() {
     $('.ui.small.modal')
       .modal({
         onVisible: function() {
-          demo = new Demo('webcam', 'chart');
-          demo.init();
+          intakeDemo = new IntakeDemo('webcam', 'chart');
+          intakeDemo.init();
         },
         onHidden: function() {
-          demo.stop();
+          intakeDemo.stop();
         }})
       .modal('show');
   });

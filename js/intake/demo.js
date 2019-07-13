@@ -7,7 +7,7 @@ const NUM_FRAMES = 16;
 /**
  * Demo for intake gesture detection
  */
-export class Demo {
+export class IntakeDemo {
   constructor(webcamId, chartId) {
     this.webcamId = webcamId;
     this.chartId = chartId
@@ -34,7 +34,7 @@ export class Demo {
     }
     if (this.webcam != null) {
       this.timer = setInterval(this.pushFrame.bind(this), 125);
-      this.model = await tf.loadLayersModel('./model/model.json');
+      this.model = await tf.loadLayersModel('../../model/intake/model.json');
       this.ui.cameraReady();
       this.ui.modelWaiting();
       this.waiting = true;
