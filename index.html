@@ -645,7 +645,7 @@
   </div>
   <!-- rPPG demo -->
   <div class="ui small modal" id="rppgModal">
-    <div class="ui active inverted dimmer" id="rppgModalDimmer">
+    <div class="ui inverted dimmer" id="rppgModalDimmer">
       <div class="ui text loader">Waiting for camera</div>
     </div>
     <div class="header">rPPG</div>
@@ -653,10 +653,9 @@
       <p>TODO</p>
       <div class="ui stackable two column grid">
         <div class="six wide column">
-          <div class="webcam-box-outer">
-            <div class="webcam-box-inner">
-              <video autoplay playsinline muted id="rppgWebcam" width="192" height="192"></video>
-            </div>
+          <div class="webcam-box">
+            <video id="rppgWebcam" width="320" height="240"></video>
+            <canvas id="rppgCanvas" width="320" height="240"></canvas>
           </div>
         </div>
         <div class="ten wide column">
@@ -670,6 +669,7 @@
   <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.2.2/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script async src="https://docs.opencv.org/master/opencv.js"></script>
   <script type="module" src="js/index.js"></script>
   <script type="module" src="js/intake/buffer.js"></script>
   <script type="module" src="js/intake/demo.js"></script>
