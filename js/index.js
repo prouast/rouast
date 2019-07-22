@@ -1,9 +1,7 @@
 
 import {IntakeDemo} from './intake/demo.js';
-import {RPPGDemo} from './rppg/demo.js';
 
 let intakeDemo;
-let rppgDemo;
 
 // Animate menu scrolling
 $("#topMenu").click(function() {
@@ -141,20 +139,6 @@ $("#intakeModalButton").click(function() {
       },
       onHidden: function() {
         intakeDemo.stop();
-      }})
-    .modal('show');
-});
-
-// rPPG demo modal
-$("#rppgModalButton").click(function() {
-  $("#rppgModal")
-    .modal({
-      onVisible: function() {
-        rppgDemo = new RPPGDemo('rppgWebcam', 'rppgChart');
-        rppgDemo.init();
-      },
-      onHidden: function() {
-        rppgDemo.stop();
       }})
     .modal('show');
 });
