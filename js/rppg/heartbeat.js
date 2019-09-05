@@ -477,7 +477,6 @@ export class Heartbeat {
   }
   // Clean up resources
   stop() {
-    console.log("stop");
     clearInterval(this.rppgTimer);
     clearInterval(this.scanTimer);
     if (this.webcam) {
