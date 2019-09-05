@@ -95,21 +95,22 @@
         </div>
         <div class="ui card">
           <div class="image">
-            <img src="/img/rppg.jpg" alt="Contactless heart rate measurement based on face video, implemented for desktop and mobile">
+            <img src="/img/rppg.jpg" alt="Contactless heart rate measurement based on face video, implemented for desktop, web, and mobile">
           </div>
           <div class="content">
             <span class="header">rPPG</span>
             <div class="meta">
               <i class="calendar icon"></i>
-              <span class="date">2015–2016</span>
+              <span class="date">2015–2019</span>
               <i class="building icon"></i>
               <span class="partner">UON/KIT</span>
               <i class="file code icon"></i>
               <span class="code">C++</span>
+              <span class="code">JS</span>
               <span class="code">OpenCV</span>
             </div>
             <div class="description">
-              Contactless heart rate measurement based on face video, implemented for desktop and mobile.
+              Contactless heart rate measurement based on face video, implemented for desktop, web, and mobile.
             </div>
           </div>
           <div class="extra content">
@@ -123,6 +124,12 @@
               <button class="ui small youtube button">
                 <i class="youtube icon"></i>
                 YouTube
+              </button>
+            </a>
+            <a>
+              <button id="rppgModalButton" class="ui small green button">
+                <i class="play icon"></i>
+                Try
               </button>
             </a>
           </div>
@@ -643,6 +650,23 @@
       </div>
     </div>
   </div>
+  <!-- rPPG demo -->
+  <div class="ui small modal" id="rppgModal">
+    <div class="ui active inverted dimmer" id="rppgModalDimmer">
+      <div class="ui text loader">Waiting to load opencv...</div>
+    </div>
+    <div class="header">
+      Heartrate detection (alpha version <i class="flask icon"></i>)
+    </div>
+    <div class="content">
+      <p>This demo runs a simple variant of rPPG directly in your browser to measure your heart rate based on subtle changes in skin color.</p>
+      <p>For best results, try in a constantly well lit space with minimal device and subject motion.</p>
+      <video hidden autoplay playsinline muted id="rppgWebcam" width="320" height="240"></video>
+      <div class="webcam-box">
+        <canvas id="rppgCanvas" width="320" height="240"></canvas>
+      </div>
+    </div>
+  </div>
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js"></script>
@@ -652,6 +676,7 @@
   <script type="module" src="js/intake/buffer.js"></script>
   <script type="module" src="js/intake/demo.js"></script>
   <script type="module" src="js/intake/ui.js"></script>
+  <script type="module" src="js/rppg/heartbeat.js"></script>
   <!-- /JS -->
 </body>
 </html>

@@ -1,7 +1,12 @@
-
 import {IntakeDemo} from './intake/demo.js';
+import {Heartbeat} from './rppg/heartbeat.js';
+
+const OPENCV_URI = "https://docs.opencv.org/master/opencv.js";
+const HAARCASCADE_URI = "model/rppg/haarcascade_frontalface_alt.xml"
 
 let intakeDemo;
+let rppgDemo;
+let opencvLoaded = false;
 
 // Animate menu scrolling
 $("#topMenu").click(function() {
@@ -139,6 +144,53 @@ $("#intakeModalButton").click(function() {
       },
       onHidden: function() {
         intakeDemo.stop();
+      }})
+    .modal('show');
+});
+
+// Load opencv when needed
+async function loadOpenCv(uri) {
+  return new Promise(function(resolve, reject) {
+    console.log("starting to load opencv");
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.type = 'text/javascript'
+    tag.onload = () => {
+      cv['onRuntimeInitialized'] = () => {
+        opencvLoaded = true;
+        console.log("opencv ready");
+        resolve();
+      }
+    };
+    tag.onerror = () => {
+      throw new URIError("opencv didn't load correctly.");
+    };
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  });
+}
+
+// RPPG demo modal
+$("#rppgModalButton").click(function() {
+  $("#rppgModal")
+    .modal({
+      onVisible: function() {
+        rppgDemo = new Heartbeat('rppgWebcam', 'rppgCanvas', HAARCASCADE_URI, 30, 6, 250);
+        if (opencvLoaded) {
+          $('#rppgModalDimmer').removeClass('active');
+          rppgDemo.init();
+        } else {
+          var ready = loadOpenCv(OPENCV_URI);
+          ready.then(function() {
+            $('#rppgModalDimmer').removeClass('active');
+            rppgDemo.init();
+          });
+        }
+      },
+      onHidden: function() {
+        rppgDemo.stop();
+        $('#rppgModalDimmer').addClass('active');
       }})
     .modal('show');
 });
