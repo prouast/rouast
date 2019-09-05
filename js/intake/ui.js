@@ -10,7 +10,6 @@ export class UI {
       data: {
         labels: [],
         datasets: [{
-          //label: 'My First dataset',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
           data: []
@@ -54,7 +53,7 @@ export class UI {
       closeIcon: true,
       message: "Camera found."
     });
-    $('#intakeModalDimmer').removeClass('active');
+    $('#intakeCameraLoader').removeClass('active');
   }
 
   cameraError() {

@@ -626,8 +626,8 @@
   </div>
   <!-- Intake demo -->
   <div class="ui small modal" id="intakeModal">
-    <div class="ui active inverted dimmer" id="intakeModalDimmer">
-      <div class="ui text loader">Waiting for camera</div>
+    <div class="ui inverted active dimmer" id="intakeModalDimmer">
+      <div class="ui text loader">Loading tensorflow...</div>
     </div>
     <div class="header">
       Intake gesture detection (alpha version <i class="flask icon"></i>)
@@ -638,6 +638,9 @@
       <div class="ui stackable two column grid">
         <div class="six wide column">
           <div class="webcam-box-outer">
+            <div class="ui inverted dimmer" id="intakeCameraLoader">
+              <div class="ui text loader">Waiting for camera...</div>
+            </div>
             <div class="webcam-box-inner">
               <video autoplay playsinline muted id="intakeWebcam" width="192" height="192"></video>
             </div>
@@ -652,7 +655,7 @@
   </div>
   <!-- rPPG demo -->
   <div class="ui small modal" id="rppgModal">
-    <div class="ui active inverted dimmer" id="rppgModalDimmer">
+    <div class="ui inverted active dimmer" id="rppgModalDimmer">
       <div class="ui text loader">Waiting to load opencv...</div>
     </div>
     <div class="header">
@@ -662,21 +665,19 @@
       <p>This demo runs a simple variant of rPPG directly in your browser to measure your heart rate based on subtle changes in skin color.</p>
       <p>For best results, try in a constantly well lit space with minimal device and subject motion.</p>
       <video hidden autoplay playsinline muted id="rppgWebcam" width="480" height="320"></video>
-      <div class="webcam-box">
+      <div class="ui segment">
         <canvas id="rppgCanvas" width="480" height="320"></canvas>
+        <div class="ui inverted dimmer" id="rppgCameraLoader">
+          <div class="ui text loader">Waiting for camera...</div>
+        </div>
       </div>
     </div>
   </div>
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.5/dist/semantic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.2.2/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="module" src="js/index.js"></script>
-  <script type="module" src="js/intake/buffer.js"></script>
-  <script type="module" src="js/intake/demo.js"></script>
-  <script type="module" src="js/intake/ui.js"></script>
-  <script type="module" src="js/rppg/heartbeat.js"></script>
   <!-- /JS -->
 </body>
 </html>

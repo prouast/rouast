@@ -27,6 +27,7 @@ export class IntakeDemo {
       }
       this.webcam = await tf.data.webcam(
         document.getElementById(this.webcamId), webcamConfig);
+      this.ui.cameraReady();
     } catch (e) {
       this.ui.cameraError();
       console.log(e);
@@ -35,7 +36,6 @@ export class IntakeDemo {
     if (this.webcam != null) {
       this.timer = setInterval(this.pushFrame.bind(this), 125);
       this.model = await tf.loadLayersModel('../../model/intake/model.json');
-      this.ui.cameraReady();
       this.ui.modelWaiting();
       this.waiting = true;
     }

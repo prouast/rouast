@@ -1,3 +1,5 @@
+import {UI} from './ui.js';
+
 const RESCAN_INTERVAL = 1000;
 const DEFAULT_FPS = 30;
 const LOW_BPM = 42;
@@ -75,8 +77,11 @@ export class Heartbeat {
   // Initialise the demo
   async init() {
     this.webcamVideoElement = document.getElementById(this.webcamId);
+    this.ui = new UI();
+    this.ui.cameraAccess();
     try {
       await this.startStreaming();
+      this.ui.cameraReady();
       this.webcamVideoElement.width = this.webcamVideoElement.videoWidth;
       this.webcamVideoElement.height = this.webcamVideoElement.videoHeight;
       this.frameRGB = new cv.Mat(this.webcamVideoElement.height, this.webcamVideoElement.width, cv.CV_8UC4);
@@ -101,6 +106,7 @@ export class Heartbeat {
       this.rppgTimer = setInterval(this.rppg.bind(this), this.rppgInterval);
     } catch (e) {
       console.log(e);
+      this.ui.cameraError();
     }
   }
   // Add one frame to raw signal

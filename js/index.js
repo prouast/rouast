@@ -2,11 +2,13 @@ import {IntakeDemo} from './intake/demo.js';
 import {Heartbeat} from './rppg/heartbeat.js';
 
 const OPENCV_URI = "https://docs.opencv.org/master/opencv.js";
-const HAARCASCADE_URI = "model/rppg/haarcascade_frontalface_alt.xml"
+const TENSORFLOW_URI = "https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.2.2/tf.min.js"
+const HAARCASCADE_URI = "model/rppg/haarcascade_frontalface_alt.xml";
 
 let intakeDemo;
 let rppgDemo;
 let opencvLoaded = false;
+let tensorflowLoaded = false;
 
 // Animate menu scrolling
 $("#topMenu").click(function() {
@@ -134,16 +136,48 @@ $("#buttonAITIC").click(function(evt){
   }
 });
 
+// Load tensorflow when needed
+async function loadTensorflow(uri) {
+  return new Promise(function(resolve, reject) {
+    console.log("starting to load tensorflow");
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.type = 'text/javascript'
+    tag.onload = () => {
+      console.log("tensorflow ready");
+      resolve();
+    };
+    tag.onerror = () => {
+      throw new URIError("tensorflow didn't load correctly.");
+    };
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  });
+}
+
 // Intake demo modal
 $("#intakeModalButton").click(function() {
   $("#intakeModal")
     .modal({
       onVisible: function() {
         intakeDemo = new IntakeDemo('intakeWebcam', 'intakeChart');
-        intakeDemo.init();
+        if (tensorflowLoaded) {
+          $('#intakeModalDimmer').removeClass('active');
+          $('#intakeCameraLoader').addClass('active');
+          intakeDemo.init();
+        } else {
+          var ready = loadTensorflow(TENSORFLOW_URI);
+          ready.then(function() {
+            $('#intakeModalDimmer').removeClass('active');
+            $('#intakeCameraLoader').addClass('active');
+            intakeDemo.init();
+          });
+        }
       },
       onHidden: function() {
         intakeDemo.stop();
+        $('#intakeModalDimmer').addClass('active');
       }})
     .modal('show');
 });
@@ -179,11 +213,13 @@ $("#rppgModalButton").click(function() {
         rppgDemo = new Heartbeat('rppgWebcam', 'rppgCanvas', HAARCASCADE_URI, 30, 6, 250);
         if (opencvLoaded) {
           $('#rppgModalDimmer').removeClass('active');
+          $('#rppgCameraLoader').addClass('active');
           rppgDemo.init();
         } else {
           var ready = loadOpenCv(OPENCV_URI);
           ready.then(function() {
             $('#rppgModalDimmer').removeClass('active');
+            $('#rppgCameraLoader').addClass('active');
             rppgDemo.init();
           });
         }
