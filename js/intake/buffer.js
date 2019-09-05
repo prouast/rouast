@@ -12,6 +12,9 @@ export class VideoBuffer {
   */
   updateWithFrame(frame) {
     // Add the frame
+    if (frame == null) {
+      return false;
+    }
     if (this.frames == null) {
       this.frames = tf.keep(frame.expandDims(0));
     } else {

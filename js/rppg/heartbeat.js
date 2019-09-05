@@ -107,6 +107,7 @@ export class Heartbeat {
     } catch (e) {
       console.log(e);
       this.ui.cameraError();
+      this.ui.close();
     }
   }
   // Add one frame to raw signal

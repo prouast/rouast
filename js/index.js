@@ -161,17 +161,19 @@ $("#intakeModalButton").click(function() {
   $("#intakeModal")
     .modal({
       onVisible: function() {
-        intakeDemo = new IntakeDemo('intakeWebcam', 'intakeChart');
+        if (intakeDemo == null) {
+          intakeDemo = new IntakeDemo('intakeWebcam', 'intakeChart');
+        }
         if (tensorflowLoaded) {
           $('#intakeModalDimmer').removeClass('active');
           $('#intakeCameraLoader').addClass('active');
-          intakeDemo.init();
+          intakeDemo.start();
         } else {
           var ready = loadTensorflow(TENSORFLOW_URI);
           ready.then(function() {
             $('#intakeModalDimmer').removeClass('active');
             $('#intakeCameraLoader').addClass('active');
-            intakeDemo.init();
+            intakeDemo.start();
           });
         }
       },

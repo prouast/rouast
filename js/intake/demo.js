@@ -11,36 +11,57 @@ export class IntakeDemo {
   constructor(webcamId, chartId) {
     this.webcamId = webcamId;
     this.chartId = chartId
+    this.initialized = false;
   }
-
-  async init() {
+  async start() {
     this.isPredicting = false;
+    if (this.initialized) {
+      this.resume();
+    } else {
+      this.init();
+    }
+  }
+  async startCamera() {
+    this.ui.cameraAccess();
+    const webcamConfig = {
+      facingMode: 'user',
+      resizeWidth: 128.0,
+      resizeHeight: 128.0,
+      centerCrop: true
+    }
+    this.webcam = await tf.data.webcam(
+      document.getElementById(this.webcamId), webcamConfig);
+    this.ui.cameraReady();
+  }
+  startModel() {
+    this.timer = setInterval(this.pushFrame.bind(this), 125);
+    this.ui.modelWaiting();
+    this.waiting = true;
+  }
+  async init() {
     this.videoBuffer = new VideoBuffer(NUM_FRAMES);
     this.ui = new UI(this.chartId);
-    this.ui.cameraAccess();
     try {
-      const webcamConfig = {
-        facingMode: 'user',
-        resizeWidth: 128.0,
-        resizeHeight: 128.0,
-        centerCrop: true
-      }
-      this.webcam = await tf.data.webcam(
-        document.getElementById(this.webcamId), webcamConfig);
-      this.ui.cameraReady();
+      await this.startCamera();
     } catch (e) {
-      this.ui.cameraError();
       console.log(e);
+      this.ui.cameraError();
       this.ui.close();
     }
-    if (this.webcam != null) {
-      this.timer = setInterval(this.pushFrame.bind(this), 125);
-      this.model = await tf.loadLayersModel('../../model/intake/model.json');
-      this.ui.modelWaiting();
-      this.waiting = true;
-    }
+    this.model = await tf.loadLayersModel('../../model/intake/model.json');
+    this.initialized = true;
+    this.startModel();
   }
-
+  async resume() {
+    try {
+      await this.startCamera();
+    } catch (e) {
+      console.log(e);
+      this.ui.cameraError();
+      this.ui.close();
+    }
+    this.startModel();
+  }
   standardize(frames) {
     const num_pixels = tf.prod(frames.shape);
     const mean = tf.mean(frames);
@@ -50,7 +71,6 @@ export class IntakeDemo {
     const normFrames = tf.div(tf.sub(frames, mean), pixel_value_scale);
     return normFrames;
   }
-
   // Push a frame into the videoBuffer
   async pushFrame() {
     const frame = await this.webcam.capture();
@@ -66,7 +86,6 @@ export class IntakeDemo {
       this.predict();
     }
   }
-
   // Make one prediction
   async predict() {
     this.isPredicting = true;
@@ -88,7 +107,6 @@ export class IntakeDemo {
     //console.log("inference took " + (t1 - t0) + " milliseconds.");
     //console.log('tf.memory(): ', tf.memory());
   }
-
   stop() {
     clearInterval(this.timer);
     this.webcam.stop();
