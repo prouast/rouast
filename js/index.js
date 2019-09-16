@@ -69,6 +69,23 @@ $("#publicationsButton").click(function(evt){
 });
 
 // Show/hide TAC abstract
+$("#buttonJBHI").click(function(evt){
+  evt.preventDefault();
+  if ($("#moreJBHI").css("display") == "none") {
+    $("#dotsJBHI").toggle();
+    $("#moreJBHI").toggle();
+    $("#buttonJBHI").html("Read less");
+    $("#buttonJBHI").removeClass("primary");
+  }
+  else {
+    $("#dotsJBHI").toggle();
+    $("#moreJBHI").toggle();
+    $("#buttonJBHI").html("Read more");
+    $("#buttonJBHI").addClass("primary");
+  }
+});
+
+// Show/hide TAC abstract
 $("#buttonTAC").click(function(evt){
   evt.preventDefault();
   if ($("#moreTAC").css("display") == "none") {
