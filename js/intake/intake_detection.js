@@ -7,7 +7,7 @@ const NUM_FRAMES = 16;
 /**
  * Demo for intake gesture detection
  */
-export class IntakeDemo {
+export class IntakeDetection {
   constructor(webcamId, chartId) {
     this.webcamId = webcamId;
     this.chartId = chartId
@@ -48,7 +48,7 @@ export class IntakeDemo {
       this.ui.cameraError();
       this.ui.close();
     }
-    this.model = await tf.loadLayersModel('../../model/intake/model.json');
+    this.model = await tf.loadLayersModel('../../model/intake-3d/model.json');
     this.initialized = true;
     this.startModel();
   }
@@ -89,16 +89,14 @@ export class IntakeDemo {
   // Make one prediction
   async predict() {
     this.isPredicting = true;
-    // Get input frames
-    // Try 2D model why maxPool3D is not supported yet
-    const frame = this.videoBuffer.frames.slice(NUM_FRAMES - 1);
-    // Normalize the frames
-    const normFrame = tf.tidy(() => this.standardize(frame.toFloat()));
-    frame.dispose();
+    // Get input frames and add batch dim 1
+    var input = this.videoBuffer.frames;
+    input = tf.tidy(() => this.standardize(input.toFloat()));
+    input = input.expandDims(0);
     const t0 = performance.now();
     // Run inference
-    const logits = this.model.predict(normFrame);
-    normFrame.dispose();
+    const logits = this.model.predict(input);
+    input.dispose();
     const p = tf.softmax(logits.flatten());
     const data = await p.data();
     this.ui.updateChart(data[1], t0);

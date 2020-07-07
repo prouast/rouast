@@ -1,8 +1,8 @@
-import {IntakeDemo} from './intake/demo.js';
+import {IntakeDetection} from './intake/intake_detection.js';
 import {Heartbeat} from './rppg/heartbeat.js';
 
 const OPENCV_URI = "https://docs.opencv.org/master/opencv.js";
-const TENSORFLOW_URI = "https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.2.2/tf.min.js"
+const TENSORFLOW_URI = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"
 const HAARCASCADE_URI = "model/rppg/haarcascade_frontalface_alt.xml";
 
 let intakeDemo;
@@ -179,7 +179,7 @@ $("#intakeModalButton").click(function() {
     .modal({
       onVisible: function() {
         if (intakeDemo == null) {
-          intakeDemo = new IntakeDemo('intakeWebcam', 'intakeChart');
+          intakeDemo = new IntakeDetection('intakeWebcam', 'intakeChart');
         }
         if (tensorflowLoaded) {
           $('#intakeModalDimmer').removeClass('active');
