@@ -90,18 +90,19 @@ export class IntakeDetection {
   async predict() {
     this.isPredicting = true;
     // Get input frames and add batch dim 1
-    var input = this.videoBuffer.frames;
-    input = tf.tidy(() => this.standardize(input.toFloat()));
-    input = input.expandDims(0);
+    const input = tf.tidy(() => this.standardize(this.videoBuffer.frames).expandDims(0));
     const t0 = performance.now();
     // Run inference
-    const logits = this.model.predict(input);
-    input.dispose();
-    const p = tf.softmax(logits.flatten());
-    const data = await p.data();
-    this.ui.updateChart(data[1], t0);
+    const logits = tf.tidy(() => this.model.predict(input));
+    const probs = tf.tidy(() => tf.softmax(logits.flatten()));
+    const data = await probs.data();
     const t1 = performance.now();
+    this.ui.updateChart(data[1], t0);
     this.isPredicting = false;
+    // Clean up memory
+    input.dispose();
+    logits.dispose();
+    probs.dispose();
     //console.log("inference took " + (t1 - t0) + " milliseconds.");
     //console.log('tf.memory(): ', tf.memory());
   }
