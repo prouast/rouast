@@ -71,6 +71,43 @@
       <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
+            <img src="/img/oreba.png" alt="OREBA dataset.">
+          </div>
+          <div class="content">
+            <span class="header">OREBA dataset</span>
+            <div class="meta">
+              <i class="calendar icon"></i>
+              <span class="date">2018–2020</span>
+              <i class="file code icon"></i>
+              <span class="code">Python</span>
+            </div>
+            <div class="description">
+              A dataset for intake gesture detection with video and inertial data - 202 sessions with 9069 gestures.
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="https://www.newcastle.edu.au/oreba" target="_blank">
+              <button class="ui small button">
+                <i class="download icon"></i>
+                Access
+              </button>
+            </a>
+            <a href="https://www.youtube.com/watch?v=jEoyeYqKvDg" target="_blank">
+              <button class="ui small youtube button">
+                <i class="youtube icon"></i>
+                YouTube
+              </button>
+            </a>
+            <a href="https://github.com/prouast/inertial-sensor-processing" target="_blank">
+              <button class="ui small button">
+                <i class="github icon"></i>
+                GitHub
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
             <img src="/img/intake_detection.jpg" alt="Automatic detection of individual intake gestures based on 360-degree video and deep learning.">
           </div>
           <div class="content">
@@ -146,6 +183,10 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="ui container" id="hidableProjects">
+      <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
             <img src="/img/equirectangular-remap.jpg" alt="Generate maps for conversions from spherical to equirectangular in ffmpeg.">
@@ -172,10 +213,6 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="ui container" id="hidableProjects">
-      <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
             <img src="/img/cryptocurrency-analysis.jpg" alt="Correlations between returns in the cryptocurrency market.">
@@ -226,6 +263,8 @@
             </a>
           </div>
         </div>
+      </div>
+      <div class="ui three stackable cards">
         <div class="ui card">
           <div class="image">
             <img src="/img/planspiel.png">
@@ -276,6 +315,39 @@
       <div class="ui items">
         <div class="item">
           <div class="image">
+            <img src="/img/oreba.png" alt="OREBA dataset">
+          </div>
+          <div class="content">
+            <a href="https://arxiv.org/abs/2007.15831" class="header" target="_blank">
+              OREBA: A Dataset for Objectively Recognizing Eating Behaviour and Associated Intake
+            </a>
+            <div class="authors">
+              <span><u>Philipp V. Rouast</u>, Hamid Heydarian, Marc T. P. Adam, and Megan E. Rollo</span>
+            </div>
+            <div class="meta">
+              <span>Preprint (2020)</span>
+            </div>
+            <div class="description">
+              <p>
+                Automatic detection of intake gestures is a key element of automatic dietary monitoring. Several types of sensors, including inertial measurement units (IMU) and video cameras, have been used for this purpose. The common machine learning approaches make use of the labelled sensor data to automatically learn how to make detections.
+                <span id="dotsACC2020">...</span>
+                <span id="moreACC2020">
+                  One characteristic, especially for deep learning models, is the need for large datasets. To meet this need, we collected the Objectively Recognizing Eating Behavior and Associated Intake (OREBA) dataset. The OREBA dataset aims to provide a comprehensive multi-sensor recording of communal intake occasions for researchers interested in automatic detection of intake gestures. Two scenarios are included, with 100 participants for a discrete dish and 102 participants for a shared dish, totalling 9069 intake gestures. Available sensor data consists of synchronized frontal video and IMU with accelerometer and gyroscope for both hands. We report the details of data collection and annotation, as well as technical details of sensor processing. The results of studies on IMU and video data involving deep learning models are reported to provide a baseline for future research.
+                </span>
+                <a id="buttonACC2020">Read more</a>
+              </p>
+            </div>
+            <div class="extra">
+              <a href="pdf/rouast2020oreba.pdf" class="ui basic label" target="_blank">
+                <i class="file pdf icon"></i>
+                PDF
+              </a>
+              <span class="links"><a href="https://arxiv.org/abs/2007.15831" target="_blank">arXiv</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
             <img src="/img/intake_detection_1.gif" alt="Learning deep representations for video-based intake gesture detection">
             <img src="/img/intake_detection_2.gif" alt="Learning deep representations for video-based intake gesture detection">
           </div>
@@ -287,16 +359,16 @@
               <span><u>Philipp V. Rouast</u> and Marc T. P. Adam</span>
             </div>
             <div class="meta">
-              <span>IEEE Journal of Biomedical and Health Informatics</span>
+              <span>IEEE Journal of Biomedical and Health Informatics 24 (6), 1727–1737 (2020)</span>
             </div>
             <div class="description">
               <p>
                 Automatic detection of individual intake gestures during eating occasions has the potential to improve dietary monitoring and support dietary recommendations. Existing studies typically make use of on-body solutions such as inertial and audio sensors, while video is used as ground truth. Intake gesture detection directly based on video has rarely
-                <span id="dotsJBHI">...</span>
-                <span id="moreJBHI">
+                <span id="dotsJBHI2019">...</span>
+                <span id="moreJBHI2019">
                   been attempted. In this study, we address this gap and show that deep learning architectures can successfully be applied to the problem of video-based detection of intake gestures. For this purpose, we collect and label video data of eating occasions using 360-degree video of 102 participants. Applying state-of-the-art approaches from video action recognition, our results show that (1) the best model achieves an F1 score of 0.858, (2) appearance features contribute more than motion features, and (3) temporal context in form of multiple video frames is essential for top model performance.
                 </span>
-                <a id="buttonJBHI">Read more</a>
+                <a id="buttonJBHI2019">Read more</a>
               </p>
             </div>
             <div class="extra">
@@ -314,7 +386,7 @@
         </div>
         <div class="item">
           <div class="image">
-            <img src="/img/affect_recognition.png" alt="Deep Learning for Human Affect Recognition: Insights and New Developments">
+            <img src="/img/tac.png" alt="Deep Learning for Human Affect Recognition: Insights and New Developments">
           </div>
           <div class="content">
             <a href="https://ieeexplore.ieee.org/abstract/document/8598999/" class="header" target="_blank">
@@ -324,16 +396,16 @@
               <span><u>Philipp V. Rouast</u>, Marc T. P. Adam, Raymond Chiong</span>
             </div>
             <div class="meta">
-              <span>IEEE Transactions on Affective Computing</span>
+              <span>IEEE Transactions on Affective Computing (2019)</span>
             </div>
             <div class="description">
               <p>
                 Automatic human affect recognition is a key step towards more natural human-computer interaction. Recent trends include recognition in the wild using a fusion of audiovisual and physiological sensors, a challenging setting for conventional machine learning algorithms. Since 2010, novel deep learning algorithms have been applied increasingly in this field.
-                <span id="dotsTAC">...</span>
-                <span id="moreTAC">
+                <span id="dotsTAC2019">...</span>
+                <span id="moreTAC2019">
                   In this paper, we review the literature on human affect recognition between 2010 and 2017, with a special focus on approaches using deep neural networks. By classifying a total of 950 studies according to their usage of shallow or deep architectures, we are able to show a trend towards deep learning. Reviewing a subset of 233 studies that employ deep neural networks, we comprehensively quantify their applications in this field. We find that deep learning is used for learning of (i) spatial feature representations, (ii) temporal feature representations, and (iii) joint feature representations for multimodal sensor data. Exemplary state-of-the-art architectures illustrate the recent progress. Our findings show the role deep architectures will play in human affect recognition, and can serve as a reference point for researchers working on related applications.
                 </span>
-                <a id="buttonTAC">Read more</a>
+                <a id="buttonTAC2019">Read more</a>
               </p>
             </div>
             <div class="extra">
@@ -348,6 +420,10 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="ui container" id="hidablePublications">
+      <div class="ui items">
         <div class="item">
           <div class="image">
             <img src="/img/fcs.png" alt="Remote heart rate measurement using low-cost RGB face video: a technical literature review">
@@ -365,11 +441,11 @@
             <div class="description">
               <p>
                 Remote photoplethysmography (rPPG) allows remote measurement of the heart rate using low-cost RGB imaging equipment. In this study, we review the development of the field of rPPG since its emergence in 2008. We also classify existing rPPG approaches and derive a framework that provides an overview of modular steps.
-                <span id="dotsFCS">...</span>
-                <span id="moreFCS">
+                <span id="dotsFCS2016">...</span>
+                <span id="moreFCS2016">
                   Based on this framework, practitioners can use our classification to design algorithms for an rPPG approach that suits their specific needs. Researchers can use the reviewed and classified algorithms as a starting point to improve particular features of an rPPG algorithm.
                 </span>
-                <a id="buttonFCS">Read more</a>
+                <a id="buttonFCS2016">Read more</a>
               </p>
             </div>
             <div class="extra">
@@ -383,10 +459,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="ui container" id="hidablePublications">
-      <div class="ui items">
         <div class="item">
           <div class="image">
             <img src="/img/ecis.png" alt="Using deep learning and 360 video to detect eating behavior for user assistance systems">
@@ -404,11 +476,11 @@
             <div class="description">
               <p>
                 The rising prevalence of non-communicable diseases calls for more sophisticated approaches to support individuals in engaging in healthy lifestyle behaviors, particularly in terms of their dietary intake. Building on recent advances in information technology, user assistance systems hold the potential of combining active and passive data collection methods to
-                <span id="dotsECIS">...</span>
-                <span id="moreECIS">
+                <span id="dotsECIS2018">...</span>
+                <span id="moreECIS2018">
                   monitor dietary intake and, subsequently, to support individuals in making better decisions about their diet. In this paper, we review the state-of-the-art in active and passive dietary monitoring along with the issues being faced. Building on this groundwork, we propose a research framework for user assistance systems that combine active and passive methods with three distinct levels of assistance. Finally, we outline a proof-of-concept study using video obtained from a 360-degree camera to automatically detect eating behavior from video data as a source of passive dietary monitoring for decision support.
                 </span>
-                <a id="buttonECIS">Read more</a>
+                <a id="buttonECIS2018">Read more</a>
               </p>
             </div>
             <div class="extra">
@@ -424,7 +496,7 @@
         </div>
         <div class="item">
           <div class="image">
-            <img src="/img/AITIC.png" alt="Remote photoplethysmography: Evaluation of contactless heart rate measurement in an information systems setting">
+            <img src="/img/aitic.png" alt="Remote photoplethysmography: Evaluation of contactless heart rate measurement in an information systems setting">
           </div>
           <div class="content">
             <a class="header">Remote photoplethysmography: Evaluation of contactless heart rate measurement in an information systems setting</a>
@@ -437,11 +509,11 @@
             <div class="description">
               <p>
                 As a source of valuable information about a person’s affective state, heart rate data has the potential to improve both understanding and experience of human-computer interaction. Conventional methods for measuring heart rate use skin contact methods, where a measuring device must be worn by the user. In an Information
-                <span id="dotsAITIC">...</span>
-                <span id="moreAITIC">
+                <span id="dotsAITIC2016">...</span>
+                <span id="moreAITIC2016">
                   Systems setting, a contactless approach without interference in the user’s natural environment could prove to be advantageous. We develop an application that fulfils these conditions. The algorithm is based on remote photoplethysmography, taking advantage of the slight skin color variation that occurs periodically with the user’s pulse. When evaluating this application in an Information Systems setting with various arousal levels and naturally moving subjects, we achieve an average root mean square error of 7.32 bpm for the best performing configuration. We find that a higher frame rate yields better results than a larger size moving measurement window. Regarding algorithm specifics, we find that a more detailed algorithm using the three RGB signals slightly outperforms a simple algorithm using only the green signal.
                 </span>
-                <a id="buttonAITIC">Read more</a>
+                <a id="buttonAITIC2016">Read more</a>
               </p>
             </div>
             <div class="extra">

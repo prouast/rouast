@@ -68,88 +68,105 @@ $("#publicationsButton").click(function(evt){
   }
 });
 
-// Show/hide TAC abstract
-$("#buttonJBHI").click(function(evt){
+// Show/hide ACC2020 abstract
+$("#buttonACC2020").click(function(evt){
   evt.preventDefault();
-  if ($("#moreJBHI").css("display") == "none") {
-    $("#dotsJBHI").toggle();
-    $("#moreJBHI").toggle();
-    $("#buttonJBHI").html("Read less");
-    $("#buttonJBHI").removeClass("primary");
+  if ($("#moreACC2020").css("display") == "none") {
+    $("#dotsACC2020").toggle();
+    $("#moreACC2020").toggle();
+    $("#buttonACC2020").html("Read less");
+    $("#buttonACC2020").removeClass("primary");
   }
   else {
-    $("#dotsJBHI").toggle();
-    $("#moreJBHI").toggle();
-    $("#buttonJBHI").html("Read more");
-    $("#buttonJBHI").addClass("primary");
+    $("#dotsACC2020").toggle();
+    $("#moreACC2020").toggle();
+    $("#buttonACC2020").html("Read more");
+    $("#buttonACC2020").addClass("primary");
+  }
+});
+
+// Show/hide JBHI2019 abstract
+$("#buttonJBHI2019").click(function(evt){
+  evt.preventDefault();
+  if ($("#moreJBHI2019").css("display") == "none") {
+    $("#dotsJBHI2019").toggle();
+    $("#moreJBHI2019").toggle();
+    $("#buttonJBHI2019").html("Read less");
+    $("#buttonJBHI2019").removeClass("primary");
+  }
+  else {
+    $("#dotsJBHI2019").toggle();
+    $("#moreJBHI2019").toggle();
+    $("#buttonJBHI2019").html("Read more");
+    $("#buttonJBHI2019").addClass("primary");
   }
 });
 
 // Show/hide TAC abstract
-$("#buttonTAC").click(function(evt){
+$("#buttonTAC2019").click(function(evt){
   evt.preventDefault();
-  if ($("#moreTAC").css("display") == "none") {
-    $("#dotsTAC").toggle();
-    $("#moreTAC").toggle();
-    $("#buttonTAC").html("Read less");
-    $("#buttonTAC").removeClass("primary");
+  if ($("#moreTAC2019").css("display") == "none") {
+    $("#dotsTAC2019").toggle();
+    $("#moreTAC2019").toggle();
+    $("#buttonTAC2019").html("Read less");
+    $("#buttonTAC2019").removeClass("primary");
   }
   else {
-    $("#dotsTAC").toggle();
-    $("#moreTAC").toggle();
-    $("#buttonTAC").html("Read more");
-    $("#buttonTAC").addClass("primary");
+    $("#dotsTAC2019").toggle();
+    $("#moreTAC2019").toggle();
+    $("#buttonTAC2019").html("Read more");
+    $("#buttonTAC2019").addClass("primary");
   }
 });
 
 // Show/hide ECIS abstract
-$("#buttonECIS").click(function(evt){
+$("#buttonECIS2018").click(function(evt){
   evt.preventDefault();
-  if ($("#moreECIS").css("display") == "none") {
-    $("#dotsECIS").toggle();
-    $("#moreECIS").toggle();
-    $("#buttonECIS").html("Read less");
-    $("#buttonECIS").removeClass("primary");
+  if ($("#moreECIS2018").css("display") == "none") {
+    $("#dotsECIS2018").toggle();
+    $("#moreECIS2018").toggle();
+    $("#buttonECIS2018").html("Read less");
+    $("#buttonECIS2018").removeClass("primary");
   }
   else {
-    $("#dotsECIS").toggle();
-    $("#moreECIS").toggle();
-    $("#buttonECIS").html("Read more");
-    $("#buttonECIS").addClass("primary");
+    $("#dotsECIS2018").toggle();
+    $("#moreECIS2018").toggle();
+    $("#buttonECIS2018").html("Read more");
+    $("#buttonECIS2018").addClass("primary");
   }
 });
 
 // Show/hide FCS abstract
-$("#buttonFCS").click(function(evt){
+$("#buttonFCS2016").click(function(evt){
   evt.preventDefault();
-  if ($("#moreFCS").css("display") == "none") {
-    $("#dotsFCS").toggle();
-    $("#moreFCS").toggle();
-    $("#buttonFCS").html("Read less");
-    $("#buttonFCS").removeClass("primary");
+  if ($("#moreFCS2016").css("display") == "none") {
+    $("#dotsFCS2016").toggle();
+    $("#moreFCS2016").toggle();
+    $("#buttonFCS2016").html("Read less");
+    $("#buttonFCS2016").removeClass("primary");
   }
   else {
-    $("#dotsFCS").toggle();
-    $("#moreFCS").toggle();
-    $("#buttonFCS").html("Read more");
-    $("#buttonFCS").addClass("primary");
+    $("#dotsFCS2016").toggle();
+    $("#moreFCS2016").toggle();
+    $("#buttonFCS2016").html("Read more");
+    $("#buttonFCS2016").addClass("primary");
   }
 });
 
 // Show/hide AITIC abstract
-$("#buttonAITIC").click(function(evt){
+$("#buttonAITIC2016").click(function(evt){
   evt.preventDefault();
-  if ($("#moreAITIC").css("display") == "none") {
-    $("#dotsAITIC").toggle();
-    $("#moreAITIC").toggle();
-    $("#buttonAITIC").html("Read less");
-    $("#buttonAITIC").removeClass("primary");
+  if ($("#moreAITIC2016").css("display") == "none") {
+    $("#dotsAITIC2016").toggle();
+    $("#moreAITIC2016").toggle();
+    $("#buttonAITIC2016").html("Read less");
+    $("#buttonAITIC2016").removeClass("primary");
   }
   else {
-    $("#dotsAITIC").toggle();
-    $("#moreAITIC").toggle();
-    $("#buttonAITIC").html("Read more");
-    $("#buttonAITIC").addClass("primary");
+    $("#dotsAITIC2016").toggle();
+    $("#moreAITIC2016").toggle();
+    $("#buttonAITIC2016").html("Read more");
+    $("#buttonAITIC2016").addClass("primary");
   }
 });
 
