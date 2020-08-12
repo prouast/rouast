@@ -68,6 +68,23 @@ $("#publicationsButton").click(function(evt){
   }
 });
 
+// Show/hide JBHI2020 abstract
+$("#buttonJBHI2020").click(function(evt){
+  evt.preventDefault();
+  if ($("#moreJBHI2020").css("display") == "none") {
+    $("#dotsJBHI2020").toggle();
+    $("#moreJBHI2020").toggle();
+    $("#buttonJBHI2020").html("Read less");
+    $("#buttonJBHI2020").removeClass("primary");
+  }
+  else {
+    $("#dotsJBHI2020").toggle();
+    $("#moreJBHI2020").toggle();
+    $("#buttonJBHI2020").html("Read more");
+    $("#buttonJBHI2020").addClass("primary");
+  }
+});
+
 // Show/hide ACC2020 abstract
 $("#buttonACC2020").click(function(evt){
   evt.preventDefault();
