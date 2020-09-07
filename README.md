@@ -17,6 +17,8 @@ This is pretty straightforward as outlined [here](https://docs.aws.amazon.com/Ro
 2. Create buckets on Amazon S3 and upload your website data
 
 I use two buckets as outlined in [this guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html#root-domain-walkthrough-before-you-begin), one for the `www` domain and one for the apex domain (redirects to the `www` domain).
+Configure one bucket for static website hosting, upload the files, allow public access, and set the bucket policy.
+Configure the other bucket for redirect and allow public access.
 
 3. Get a certificate from Amazon Certificate Manager
 
@@ -25,6 +27,8 @@ For secure `HTTPS` access to the website, Amazon offers free `SSL` certificates 
 4. Configure Amazon CloudFront
 
 For each bucket, a [policy is set up](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/) on CloudFront using the bucket endpoint and previously created certificate.
+Set up each with the corresponding bucket endpoint listed in S3.
+Select the certificate from ACM.
 The type A `DNS` record sets on Route53 have to be updated to reflect the domain names from CloudFront.
 
 5. Making changes to content
